@@ -1,9 +1,16 @@
+.container{
+  padding: 0 24px;
+  margin: 0 auto;
+}
 .details-block{
   padding-top: 20px;
   padding-bottom: 15px;
+  margin: 0 auto;
   &__block-img{
     width: 273px;
     height: 404px;
     border: 1px solid black;
+    margin: 0 auto;
+    margin-bottom: 20px;
   }
 }
