@@ -13,6 +13,10 @@
     margin-bottom: 20px;
     background-image: url(../images/images/img1.jpg);
   }
+
+  &__info--tech-info{
+    margin-bottom: 24px;
+  }
 }
 
 .block-btn {
@@ -42,4 +46,25 @@
 
 .tech-info-item{
   display: flex;
+  padding-left: 15px;
+
+  &:nth-child(even){
+    background-color: #addad6;
+  }
 }
+
+.tech-info-item>p {
+  font-family: 'Roboto';
+  font-size: 13px;
+  padding-top: 10px;
+  padding-bottom: 6px;
+  margin-right: 42px;
+}
+
+.about-description{
+  font-family: 'Roboto';
+  font-size: 14px;
+  color: rgba(55, 44, 72, 0.541);
+  text-align: justify;
+}
+
