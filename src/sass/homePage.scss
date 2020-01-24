@@ -106,6 +106,7 @@ input[name="search"] {
     @media (min-width: 1024px){
       width: 466px;
       height: 244px;
+      
       &:nth-child(odd){
         margin-right: 30px;
       }

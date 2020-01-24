@@ -10,6 +10,9 @@ const refs = {
   btnNext: document.querySelector('.next'),
   btnPrev: document.querySelector('.prev')
 };
+
+// https://api.themoviedb.org/3/find/38700?api_key=e9f6322f77334e3f0406d6b8eabd79ce&language=en-US&external_source=imdb_id
+
 const filmsService = {
   page: 1,
   value: '',
@@ -28,6 +31,7 @@ const filmsService = {
       .then(data => {
         if(data.results.length !== 0) {
           data.results.map(film => {
+            console.log(film)
             const markup = `
           <li data-id="${film.id}" class="films_list-item">
             <img 
@@ -40,7 +44,6 @@ const filmsService = {
           `;
             refs.filmsContainer.insertAdjacentHTML('beforeend', markup);
           });
-          // this.incrementPage();
           
         } else {
           const errorDiv = document.createElement('div');
@@ -61,6 +64,7 @@ refs.btnNext.addEventListener('click', loadNextPage);
 refs.btnNext.addEventListener('click', loadNextDefaultPage);
 refs.btnPrev.addEventListener('click', loadPrevPage);
 document.addEventListener('DOMContentLoaded', homePageFilm);
+refs.filmsContainer.addEventListener('click', openClickedFilm);
 refs.paginationPage.textContent = filmsService.page;
 
 function searchFilms(e) {
@@ -82,8 +86,6 @@ function loadNextPage() {
 
 function loadNextDefaultPage() {
   refs.filmsContainer.innerHTML = '';
-  filmsService.incrementPage();
-  refs.paginationPage.textContent = filmsService.page;
   filmsService.fetchFilms(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsService.page}`);
   refs.searchInput.value = '';
   refs.btnPrev.disabled = false;
@@ -93,7 +95,7 @@ function loadPrevPage() {
   refs.filmsContainer.innerHTML = '';
   filmsService.decrementPage();
   refs.paginationPage.textContent = filmsService.page;
-  filmsService.fetchFilms(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmsService.value}&page=${filmsService.page}&include_adult=true`)
+  filmsService.fetchFilms(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsService.page}`)
   refs.searchInput.value = '';
   if(filmsService.page < 2) {
     refs.btnPrev.disabled = true;
@@ -119,3 +121,10 @@ function genreFilms() {
 // usages exmple:
 const genres = genreFilms();
 // console.log(genres)
+
+function openClickedFilm(e) {
+  if(e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
+    const li = e.target.closest('.films_list-item');
+    li.dataset.id
+  };
+}
