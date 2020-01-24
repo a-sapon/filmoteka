@@ -91,6 +91,10 @@ input[name="search"] {
     margin-bottom: 11px;
     position: relative;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @media (min-width: 768px) {
       margin-bottom: 16px;
       
@@ -98,6 +102,15 @@ input[name="search"] {
         margin-right: 23px;
       }
     }
+
+    @media (min-width: 1024px){
+      width: 466px;
+      height: 244px;
+      &:nth-child(odd){
+        margin-right: 30px;
+      }
+    }
+
 
     &::before {
       content: "";
@@ -113,6 +126,10 @@ input[name="search"] {
       width: 298px;
       height: 156px;
       border-radius: 10px;
+      @media(min-width: 1024px){
+        width: 466px;
+        height: 244px;
+      }
     }
 
     &-title {
