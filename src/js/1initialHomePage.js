@@ -124,6 +124,8 @@ const genres = genreFilms();
 function openClickedFilm(e) {
   if(e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
     const li = e.target.closest('.films_list-item');
-    console.log(li.dataset.id)
+    fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
+    .then(response => response.json())
+    .then(data => console.log(data))
   };
 }
