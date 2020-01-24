@@ -21,7 +21,7 @@ function handleShowWatchedMovies() {
             <a href="#" class="library-list__movie-link">
               <img
                 class="library-list__movie-link--image"
-                src=https://image.tmdb.org/t/p/w500${film.poster_path}
+                src=https://image.tmdb.org/t/p/w500${film.backdrop_path}
                 alt="${film.original_title}"
               />
               <h5 class="library-list__movie-link--title">
@@ -49,8 +49,8 @@ function handleShowLaterMoviesCollection() {
             <a href="#" class="library-list__movie-link">
               <img
                 class="library-list__movie-link--image"
-                src=https://image.tmdb.org/t/p/w500${film.poster_path}
-                alt="${film.original_title}"
+                src=https://image.tmdb.org/t/p/w500${film.backdrop_path}
+                alt="${film.title}"
               />
               <h5 class="library-list__movie-link--title">
                 ${film.original_title} (<span>${film.release_date}</span>)
