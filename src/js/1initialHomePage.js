@@ -29,7 +29,7 @@ const filmsService = {
         if(data.results.length !== 0) {
           data.results.map(film => {
             const markup = `
-          <li class="films_list-item">
+          <li data-id="${film.id}" class="films_list-item">
             <a href="#">
               <img 
                 src="https://image.tmdb.org/t/p/w500${film.backdrop_path}"
@@ -56,12 +56,12 @@ const filmsService = {
         }
       })
       .catch(e => console.log(e));
-      console.log(this.page);
   }
 };
 
 refs.searchForm.addEventListener('submit', searchFilms);
 refs.btnNext.addEventListener('click', loadNextPage);
+refs.btnNext.addEventListener('click', loadNextDefaultPage);
 document.addEventListener('DOMContentLoaded', homePageFilm);
 refs.paginationPage.textContent = filmsService.page;
 
@@ -70,48 +70,29 @@ function searchFilms(e) {
   filmsService.resetPage();
   refs.filmsContainer.innerHTML = '';
   filmsService.value = refs.searchInput.value;
-  filmsService.fetchFilms(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${this.value}&page=${this.page}&include_adult=true`);
+  filmsService.fetchFilms(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmsService.value}&page=${filmsService.page}&include_adult=true`);
   refs.searchInput.value = '';
 }
 
 function loadNextPage() {
-  console.log('loadNextPage')
   refs.filmsContainer.innerHTML = '';
-  filmsService.fetchFilms();
+  filmsService.fetchFilms(`${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmsService.value}&page=${filmsService.page}&include_adult=true`)
+  refs.searchInput.value = '';
+  refs.paginationPage.textContent = filmsService.page;
+  refs.btnPrev.disabled = false;
+}
+
+function loadNextDefaultPage() {
+  refs.filmsContainer.innerHTML = '';
+  filmsService.fetchFilms(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsService.page}`);
   refs.searchInput.value = '';
   refs.paginationPage.textContent = filmsService.page;
   refs.btnPrev.disabled = false;
 }
 
 
-
-
-
-
-// MAXIM:
-
 function homePageFilm() {
   filmsService.fetchFilms(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsService.page}`);
-
-  // fetch(
-  //   `${BASE_URL}/movie/popular?api_key=${API_KEY}&page=1`,
-  // ).then(response => response.json()).then(data => {
-  //     data.results.map(film => {
-  //       const markup = `
-  //     <li class="films_list-item">
-  //       <a href="#">
-  //         <img 
-  //           src="https://image.tmdb.org/t/p/w500${film.backdrop_path}"
-  //           alt="${film.title} image"
-  //           class="films_list-item-image"
-  //         >
-  //         <h3 class="films_list-item-title">${film.title}</h3>
-  //       </a>
-  //     </li>
-  //     `;
-  //       refs.filmsContainer.insertAdjacentHTML('beforeend', markup);
-  //     })
-  //   });
 }
 
 function genreFilms() {
