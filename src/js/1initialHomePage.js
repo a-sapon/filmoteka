@@ -31,7 +31,6 @@ const filmsService = {
       .then(data => {
         if(data.results.length !== 0) {
           data.results.map(film => {
-            console.log(film)
             const markup = `
           <li data-id="${film.id}" class="films_list-item">
             <img 
@@ -125,6 +124,6 @@ const genres = genreFilms();
 function openClickedFilm(e) {
   if(e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
     const li = e.target.closest('.films_list-item');
-    li.dataset.id
+    console.log(li.dataset.id)
   };
 }
