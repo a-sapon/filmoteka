@@ -8,11 +8,13 @@ const refs = {
   searchForm: document.querySelector('.search-form'),
   searchInput: document.querySelector('input[name="search"]'),
   filmsContainer: document.querySelector('.films_list'),
-  btnNext: document.querySelector('.next')
+  btnNext: document.querySelector('.next'),
+  btnPrev: document.querySelector('.prev')
 };
 
 const filmsService = {
   page: 1,
+  value: '',
   incrementPage() {
     this.page += 1;
   },
@@ -21,7 +23,7 @@ const filmsService = {
   },
   fetchFilms() {
     fetch(
-      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${refs.searchInput.value}&page=${this.page}&include_adult=true`,
+      `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${this.value}&page=${this.page}&include_adult=true`,
     )
       .then(response => response.json())
       .then(data => {
@@ -55,6 +57,9 @@ const filmsService = {
         }
       })
       .catch(e => console.log(e));
+  },
+  disablePaginationBtn() {
+    //
   }
 };
 
@@ -65,6 +70,7 @@ function searchFilms(e) {
   e.preventDefault();
   filmsService.resetPage();
   refs.filmsContainer.innerHTML = '';
+  filmsService.value = refs.searchInput.value;
   filmsService.fetchFilms();
   refs.searchInput.value = '';
 }
@@ -74,5 +80,3 @@ function loadNextPage() {
   filmsService.fetchFilms();
   refs.searchInput.value = '';
 }
-
-// value of input
