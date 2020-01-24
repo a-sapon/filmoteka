@@ -1,0 +1,129 @@
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+input[name="search"] {
+  background-image: url(../images/search-icon.png);
+  background-repeat: no-repeat;
+  width: 257px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14.4px;
+  padding-left: 28px;
+  border: none;
+  border-bottom: 2px solid #9894a1;
+  margin-bottom: 36px;
+
+  @media (min-width: 768px) {
+    font-size: 16px;
+    line-height: 16px;
+    width: 285px;  
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  margin-bottom: 23px;
+
+  &_btn {
+    width: 94px;
+    height: 46px;
+    background-image: -moz-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.004);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    letter-spacing: 2px;
+
+    @media (min-width: 768px) {
+      width: 74px;
+      height: 36px; 
+    }
+  }
+
+  &_btn:hover {
+    cursor: pointer;
+    box-shadow: inset 0px 10px 10px 0px rgba(0, 0, 0, 0.03);
+  }
+
+  &_page {
+    width: 46px;
+    height: 46px;
+    border: 1px solid #dddddd;
+    border-radius: 5px;
+    box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.004);
+    background-image: -moz-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    background-image: -webkit-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    background-image: -ms-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 16px 0 16px;
+
+    @media (min-width: 768px) {
+      width: 36px;
+      height: 36px;
+    }
+  }
+}
+
+.films_list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  &-item {
+    width: 298px;
+    height: 156px;
+    margin-bottom: 11px;
+    position: relative;
+
+    @media (min-width: 768px) {
+      margin-bottom: 16px;
+      
+      &:nth-child(odd) {
+        margin-right: 23px;
+      }
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      box-shadow: inset 0px -200px 97px -117px rgba(0,0,0,0.52);
+    }
+
+    &-image {
+      width: 298px;
+      height: 156px;
+      border-radius: 10px;
+    }
+
+    &-title {
+      font-size: 12.3px;
+      font-family: "Roboto", sans-serif;
+      font-weight: 500;
+      color: #ffffff;
+      line-height: 1.2;
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+    }
+  }
+}
