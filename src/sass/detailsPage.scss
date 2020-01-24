@@ -1,7 +1,4 @@
-.container{
-  padding: 0 24px;
-  margin: 0 auto;
-}
+
 
 .details-block {
   padding-top: 20px;
@@ -14,13 +11,15 @@
     border: 1px solid black;
     margin: 0 auto;
     margin-bottom: 20px;
+    background-image: url(../images/images/img1.jpg);
   }
 }
 
 .block-btn {
+  font-family: 'Roboto';
   display: flex;
   justify-content: center;
-  margin: 0 auto;
+  margin: 0 auto 12px;
 }
 
 .btn-addWatch {
@@ -34,3 +33,13 @@
   border: none;
 }
 
+.title-moive{
+  text-align: left;
+  font-family: 'Roboto';
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.tech-info-item{
+  display: flex;
+}

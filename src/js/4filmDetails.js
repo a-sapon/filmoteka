@@ -5,9 +5,11 @@ const wotched = document.querySelector(".btn-addWatch");
 const queue = document.querySelector(".btn-addQueue");
 const infoFilmsQueue = localStorage.getItem("filmsQueue");
 const infoFilmsWatched = localStorage.getItem("filmsWatched");
-console.log(infoFilmsQueue)
+const filmSelected= document.querySelector(".films_list-item");
+console.log(filmSelected)
 
-window.addEventListener("load", monitorButtonStatusTextfunction);
+
+.addEventListener("load", monitorButtonStatusTextfunction);
 function monitorButtonStatusText() {
 }
 
