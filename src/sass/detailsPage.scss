@@ -17,22 +17,39 @@
   &__info--tech-info{
     margin-bottom: 24px;
   }
+  @media (min-width:768px){
+    display: flex;
+  }
+
+  &__info--about{
+
+    @media (min-width: 768px){
+      margin-bottom: 35px;
+    }
+  }
 }
 
 .block-btn {
   font-family: 'Roboto';
+  font-size: 12px;
   display: flex;
   justify-content: center;
   margin: 0 auto 12px;
+
+  @media (min-width:768px) {
+    
+  }
 }
 
 .btn-addWatch {
+  display: block;
   background-color: transparent;
   background-image: url();
   border: none;
 }
 
 .btn-addQueue {
+  display: block;
   background-color: transparent;
   border: none;
 }
@@ -67,4 +84,11 @@
   color: rgba(55, 44, 72, 0.541);
   text-align: justify;
 }
-
+@media (min-width: 768px){
+  .wrapper-btn-info{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    width: 400px;
+  }
+}
