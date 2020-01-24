@@ -91,6 +91,10 @@ input[name="search"] {
     margin-bottom: 11px;
     position: relative;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @media (min-width: 768px) {
       margin-bottom: 16px;
       
