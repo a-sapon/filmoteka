@@ -24,7 +24,11 @@ function homePageFilm(e) {
     )
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        data.results.map(film => {
+          film.genre_ids
+          console.log(film.genre_ids)
+        })
+        // console.log(data.results[0]);
         data.results.map(film => {
           const markup = `
         <li class="films_list-item">
