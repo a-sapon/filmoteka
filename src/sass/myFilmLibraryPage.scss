@@ -1,8 +1,4 @@
 .library {
-  &__container {
-    margin: 0 auto;
-  }
-
   .btn-box {
     display: flex;
     justify-content: center;
@@ -54,6 +50,9 @@
         }
 
         &-link {
+          &--image{
+            border-radius: 20px;
+          }
           transform: scale(1);
           transition: all 0.3s ease-in-out;
 
@@ -64,7 +63,7 @@
 
         &-rating {
           position: absolute;
-          top: 4%;
+          top: 2%;
           right: 2%;
           z-index: 1;
           font-family: 'Roboto';
@@ -81,7 +80,7 @@
 
         .library-list__movie-link--title {
           position: absolute;
-          top: 86%;
+          top: 95%;
           left: 4%;
           z-index: 1;
           font-family: 'Roboto';
@@ -102,7 +101,7 @@
 @media (min-width: 768px) {
   .library {
     .list-box {
-      padding: 30px;
+      padding: 30px 0px;
 
       .library-list {
         width: 710px;
@@ -137,7 +136,7 @@
 @media (min-width: 1024px) {
   .library {
     .list-box {
-      padding: 30px 32px;
+      padding: 30px 0px;
 
       .library-list {
         width: 964px;
