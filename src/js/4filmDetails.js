@@ -2,12 +2,18 @@
 const API_KEY = 'e9f6322f77334e3f0406d6b8eabd79ce';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-let wotched = document.querySelector(".btn-addWatch");
+let watched = document.querySelector(".btn-addWatch");
 let queue = document.querySelector(".btn-addQueue");
-const infoFilmsQueue = JSON.parse(localStorage.getItem("filmsQueue"));
-const infoFilmsWatched = JSON.parse(localStorage.getItem("filmsWatched"));
+let infoFilmsQueue = JSON.parse(localStorage.getItem("filmsQueue"));
+let infoFilmsWatched = JSON.parse(localStorage.getItem("filmsWatched"));
+let selectFilm;
 
-console.dir(infoFilmsQueue)
+if(!infoFilmsQueue){
+  infoFilmsQueue=[];
+}
+if(!infoFilmsWatched){
+  infoFilmsWatched=[];
+}
 
 // for rendering
 const homePage = document.querySelector(".home-page")
@@ -41,25 +47,48 @@ function openClickedFilm(e) {
     fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(data => {
-        console.log(data)
+        selectFilm = data;
         renderingDetailsPage(data);
       })
   };
 }
 
 
-function monitorButtonStatusText(id) {
-  if (infoFilmsQueue !== null && infoFilmsQueue.includes(id)) {
-    queue.innerText = "Delete from queue";
-  } else {
-    queue.innerText = "Add to queue"
+function monitorButtonStatusText(id, keyStorage) {
+  switch (keyStorage) {
+    case "filmsQueue":
+      queue.lastElementChild.innerText = infoFilmsQueue.includes(id) ?
+        "Delete from queue" :
+        "Add to queue";
+      break;
+    case "filmsWatched":
+      watched.lastElementChild.innerText = infoFilmsWatched.includes(id) ?
+        "Delete from watched" :
+        "Add to watched";
+      break;
   }
-  return queue;
 }
 
 function toggleToQueue() {
-  let arrQueue = [];
-if(infoFilmsQueue!==null&&id){
+  if(infoFilmsQueue.includes(selectFilm.id)){
+    let index= infoFilmsQueue.indexOf(selectFilm.id);
+    infoFilmsQueue.splice(index,1);
+  }else{
+    infoFilmsQueue.push(selectFilm.id);
+  }
+  localStorage.setItem("filmsQueue",JSON.stringify(infoFilmsQueue));
+  monitorButtonStatusText(selectFilm.id,"filmsQueue");
+}
+function  toggleToWatched(){
+  if (infoFilmsWatched.includes(selectFilm.id)){
+    let index=infoFilmsWatched.indexOf(selectFilm.id);
+    infoFilmsWatched.splice(index,1);
+  }else{
+    infoFilmsWatched.push(selectFilm.id);
+  }
+  localStorage.setItem("filmsWatched",JSON.stringify(infoFilmsWatched));
+  monitorButtonStatusText(selectFilm.id,"filmsWatched")
+}
 
-}
-}
+queue.addEventListener("click", toggleToQueue);
+watched.addEventListener("click",toggleToWatched);
