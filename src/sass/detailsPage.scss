@@ -1,24 +1,37 @@
 
+.details_page{
+  display: none;
+}
 
 .details-block {
-  padding-top: 20px;
-  padding-bottom: 15px;
   margin: 0 auto;
+  margin-bottom: 15px;
 
   &__block-img {
     width: 273px;
     height: 404px;
-    border: 1px solid black;
     margin: 0 auto;
     margin-bottom: 20px;
-    
+
+    @media (min-width:768px){
+      width: 356px;
+      height: 526px;
+      margin-right: 22px;
+      margin-bottom: 0;
+    }
+
+    @media (min-width:1024px){
+      width: 433px;
+      height: 638px;
+      margin-right: 36px;
+    }
   }
 
   &__info--tech-info{
     margin-bottom: 24px;
-  }
-  @media (min-width:768px){
-    display: flex;
+    @media (min-width:1024px){
+      margin-bottom: 50px;
+    }
   }
 
   &__info--about{
@@ -27,11 +40,19 @@
       margin-bottom: 35px;
     }
   }
+
+  @media (min-width:768px){
+    display: flex;
+    margin-bottom: 20px;
+  }
+  @media (min-width:1024px){
+    margin-bottom: 30px;
+  }
 }
 
 .block-btn {
   font-family: 'Roboto';
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   margin: 0 auto 12px;
@@ -43,16 +64,33 @@
 }
 
 .btn-addWatch {
-  display: block;
+  display: flex;
   background-color: transparent;
   background-image: url();
   border: none;
+  margin-right: 20px;
+
+  &__icon-wotched{
+    width: 15px;
+    height: 15px;
+    background-image: url(../images/wotch.jpg);
+    background-repeat: no-repeat;
+    margin-right: 5px;
+  }
 }
 
 .btn-addQueue {
-  display: block;
+  display: flex;
   background-color: transparent;
   border: none;
+
+  &__icon-queue{
+    width: 15px;
+    height: 15px;
+    background-image: url(../images/add.png);
+    background-repeat: no-repeat;
+    margin-right: 5px;
+  }
 }
 
 .title-moive{
@@ -69,14 +107,19 @@
   &:nth-child(even){
     background-color: #addad6;
   }
+
+  &__first-item{
+    width: 150px;
+    margin-right: 30px;
+  }
 }
 
 .tech-info-item>p {
+  text-align: left;
   font-family: 'Roboto';
   font-size: 13px;
-  padding-top: 10px;
-  padding-bottom: 6px;
-  margin-right: 42px;
+  line-height: 25px;
+  padding-right: 5px;
 }
 
 .about-description{
