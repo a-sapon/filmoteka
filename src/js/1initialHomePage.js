@@ -120,12 +120,3 @@ function paginationNavigation(e) {
 // }
 // const genres = genreFilms();
 // console.log(genres)
-
-function openClickedFilm(e) {
-  if (e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
-    const li = e.target.closest('.films_list-item');
-    fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
-}
