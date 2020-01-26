@@ -1,15 +1,44 @@
 .header {
   background-color: #77c1bb;
+}
 
-  &-list {
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 4px 0px 10px;
+  margin-bottom: 20px;
+
+  &_logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      margin-right: 10px;
+    }
+
+    &-title {
+      display: none;
+      font-family: 'Roboto';
+      font-weight: 400;
+      color: #372c48;
+      letter-spacing: 1px;
+      margin-top: 2px;
+
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+  }
+
+  &_list {
     width: 200px;
-    list-style: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 0px;
 
-    &__item--link {
+    &-item-link {
       font-family: 'Roboto', sans-serif;
       font-weight: 400;
       color: #4a586a;
@@ -21,45 +50,6 @@
         color: #372c48;
         border-bottom: 2px solid #372c48;
       }
-    }
-  }
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 286px;
-  padding: 0px 4px 0px 10px;
-  margin-bottom: 20px;
-
-  @media (min-width: 768px) {
-    width: 710px;
-  }
-
-  @media (min-width: 1024px) {
-    width: 964px;
-  }
-}
-
-.site-logo {
-  display: flex;
-  align-items: center;
-
-  img {
-    margin-right: 10px;
-  }
-
-  &__title {
-    display: none;
-    font-family: 'Roboto';
-    font-weight: 400;
-    color: #372c48;
-    letter-spacing: 1px;
-    margin-top: 2px;
-
-    @media (min-width: 768px) {
-      display: block;
     }
   }
 }
