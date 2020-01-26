@@ -1,67 +1,46 @@
-const LIBRARY_REFS = {
-  LIBRARY_LIST: document.getElementById('my-library-list'),
-  WATCHED_BTN: document.getElementById('watched-btn'),
-  WATCH_LATTER_BTN: document.getElementById('watch-later-btn'),
+const libraryRefs = {
+  // libraryList: document.getElementById('my-library-list'),
+  watchedBtn: document.getElementById('watched-btn'),
+  queueBtn: document.getElementById('watch-later-btn'),
 };
 
-LIBRARY_REFS.WATCHED_BTN.addEventListener('click', handleShowWatchedMovies);
-LIBRARY_REFS.WATCH_LATTER_BTN.addEventListener('click', handleShowLaterMoviesCollection);
+libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
+libraryRefs.queueBtn.addEventListener('click', showQueue);
 
-
-function handleShowWatchedMovies() {
-  LIBRARY_REFS.LIBRARY_LIST.innerHTML = '';
-  return fetch(
-    'https://api.themoviedb.org/3/movie/popular?api_key=4aa539255aa0c2506cf45806a15a8a0a&language=en-US&page=1',
-  )
+function showWatchedMovies() {
+  refs.filmsContainer.innerHTML = '';
+  // need to change this to WATCHED instead of popular
+  fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      const markup = data.results.reduce((acc, film) => {
-        acc += `<li class="library-list__movie">
-            <a href="#" class="library-list__movie-link">
-              <img
-                class="library-list__movie-link--image"
-                src=https://image.tmdb.org/t/p/w500${film.backdrop_path}
-                alt="${film.original_title}"
-              />
-              <h5 class="library-list__movie-link--title">
-                ${film.original_title} (<span>${film.release_date}</span>)
-              </h5>
-              <p class="library-list__movie-rating">${film.vote_average}</p>
-            </a>
-          </li>`;
-        return acc;
-      }, '');
-      LIBRARY_REFS.LIBRARY_LIST.insertAdjacentHTML('beforeend', markup);
+      createMarkupForLibrary(data.results);
     });
 }
 
-function handleShowLaterMoviesCollection() {
-    LIBRARY_REFS.LIBRARY_LIST.innerHTML = '';
-  return fetch(
-    'https://api.themoviedb.org/3/movie/popular?api_key=4aa539255aa0c2506cf45806a15a8a0a&language=en-US&page=2',
-  )
+function showQueue() {
+  refs.filmsContainer.innerHTML = '';
+  // need to change this to QUEUE FILMS instead of popular
+  fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
     .then(data => {
-      console.log(data);
-      const markup = data.results.reduce((acc, film) => {
-        acc += `<li class="library-list__movie">
-            <a href="#" class="library-list__movie-link">
-              <img
-                class="library-list__movie-link--image"
-                src=https://image.tmdb.org/t/p/w500${film.backdrop_path}
-                alt="${film.title}"
-              />
-              <h5 class="library-list__movie-link--title">
-                ${film.original_title} (<span>${film.release_date}</span>)
-              </h5>
-              <p class="library-list__movie-rating">${film.vote_average}</p>
-            </a>
-          </li>`;
-        return acc;
-      }, '');
-      LIBRARY_REFS.LIBRARY_LIST.insertAdjacentHTML('beforeend', markup);
+      createMarkupForLibrary(data.results);
     });
 }
 
-// вешает на нее слушателем функцию activeDetailsPage c параметрами movieId и флагом true так как фильм из библиотеки (смотри пункт “3)” создание activeDetailsPage);
+function createMarkupForLibrary(arr) {
+  const markup = arr.reduce((acc, film) => {
+    acc += `<li data-id="${film.id}" class="films_list-item">
+              <img
+                src="https://image.tmdb.org/t/p/w500${film.backdrop_path}"
+                alt="${film.original_title} image"
+                class="films_list-item-image"
+              />
+              <h3 class="films_list-item-title">
+                ${film.original_title} (<span>${film.release_date}</span>)
+              </h3>
+              <p class="films_list-item-rating">${film.vote_average}</p>
+            </li>`;
+    return acc;
+  }, '');
+  refs.filmsContainer.insertAdjacentHTML('beforeend', markup);
+}

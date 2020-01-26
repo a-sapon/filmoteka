@@ -82,7 +82,7 @@ function createCardFunc(arr) {
       alt="${film.title} image"
       class="films_list-item-image"
     >
-    <h3 class="films_list-item-title">${film.title}</h3>
+    <h3 class="films_list-item-title">${film.title} (<span>${film.release_date}</span>)</h3>
   </li>
   `;
     refs.filmsContainer.insertAdjacentHTML('beforeend', markup);
