@@ -18,6 +18,9 @@ const blockImg = document.querySelector('.details-block__block-img');
 const listInfo = document.querySelector('.details-block__info--tech-info');
 const descriptionBlock = document.querySelector('.details-block__info--about');
 
+queue.addEventListener('click', toggleToQueue);
+watched.addEventListener('click', toggleToWatched);
+
 function openClickedFilm(e) {
   homePage.style.display = 'none';
   pageDetail.style.display = 'block';
@@ -33,13 +36,12 @@ function openClickedFilm(e) {
 }
 
 function renderDetailsPage(data) {
-  let img = blockImg.firstChild;
-  img.setAttribute('src', `https://image.tmdb.org/t/p/w500${data.poster_path}`);
+  blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   listInfo.firstElementChild.innerHTML = data.title;
   listInfo.children[1].lastElementChild.innerText = `${data.vote_average} / ${data.vote_count}`;
   listInfo.children[2].lastElementChild.innerText = data.popularity;
   listInfo.children[3].lastElementChild.innerText = data.original_title;
-  listInfo.children[4].lastElementChild.innerText = data.genres.map(elem => elem.name);
+  listInfo.children[4].lastElementChild.innerText = data.genres.map(elem => elem.name).join(', ');
   descriptionBlock.lastElementChild.innerText = data.overview;
 }
 
@@ -51,7 +53,7 @@ function toggleToQueue() {
     infoFilmsQueue.push(selectedFilm.id);
   }
   localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
-  monitorButtonStatus(selectedFilm.id, 'filmsQueue');
+  monitorButtonStatusText(selectedFilm.id, 'filmsQueue');
 }
 function toggleToWatched() {
   if (infoFilmsWatched.includes(selectedFilm.id)) {
@@ -61,23 +63,20 @@ function toggleToWatched() {
     infoFilmsWatched.push(selectedFilm.id);
   }
   localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
-  monitorButtonStatus(selectedFilm.id, 'filmsWatched');
+  monitorButtonStatusText(selectedFilm.id, 'filmsWatched');
 }
 
-function monitorButtonStatus(id, keyStorage) {
+function monitorButtonStatusText(id, keyStorage) {
   switch (keyStorage) {
     case 'filmsQueue':
-      queue.lastElementChild.innerText = infoFilmsQueue.includes(id)
+      queue.innerText = infoFilmsQueue.includes(id)
         ? 'Delete from queue'
         : 'Add to queue';
       break;
     case 'filmsWatched':
-      watched.lastElementChild.innerText = infoFilmsWatched.includes(id)
+      watched.innerText = infoFilmsWatched.includes(id)
         ? 'Delete from watched'
         : 'Add to watched';
       break;
   }
 }
-
-queue.addEventListener('click', toggleToQueue);
-watched.addEventListener('click', toggleToWatched);
