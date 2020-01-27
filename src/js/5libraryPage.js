@@ -1,6 +1,6 @@
 const libraryRefs = {
   watchedBtn: document.getElementById('watched-btn'),
-  queueBtn: document.getElementById('watch-later-btn')
+  queueBtn: document.getElementById('watch-later-btn'),
 };
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
@@ -12,6 +12,7 @@ function showWatchedMovies() {
   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
     .then(data => {
+      // console.log(data)
       createMarkupForLibrary(data.results);
     });
 }
