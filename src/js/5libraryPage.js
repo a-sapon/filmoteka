@@ -7,6 +7,7 @@ const libraryRefs = {
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
 libraryRefs.queueBtn.addEventListener('click', showQueue);
+libraryRefs.libraryList.addEventListener('click', openClickedFilm);
 
 function showWatchedMovies() {
   const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
