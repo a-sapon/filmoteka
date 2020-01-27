@@ -2,22 +2,34 @@ const libraryRefs = {
   watchedBtn: document.getElementById('watched-btn'),
   queueBtn: document.getElementById('watch-later-btn'),
   libraryList: document.getElementById('library-list'),
+  libraryStub: document.getElementById('library-stub')
 };
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
 libraryRefs.queueBtn.addEventListener('click', showQueue);
 
 function showWatchedMovies() {
-  libraryRefs.libraryList.innerHTML = '';
-  // need to change this to WATCHED instead of popular
   const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
-  createMarkupForLibrary(watchedFilms);
+  if(watchedFilms !== null) {
+    libraryRefs.libraryStub.style.display = 'none';
+    libraryRefs.libraryList.innerHTML = '';
+    createMarkupForLibrary(watchedFilms);
+  } else {
+    libraryRefs.libraryList.innerHTML = '';
+    libraryRefs.libraryStub.style.display = 'flex';
+  }
 }
 
 function showQueue() {
-  libraryRefs.libraryList.innerHTML = '';
   const quequeFilms = JSON.parse(localStorage.getItem('filmsQueue'));
-  createMarkupForLibrary(quequeFilms);
+  if(quequeFilms !== null) {
+    libraryRefs.libraryStub.style.display = 'none';
+    libraryRefs.libraryList.innerHTML = '';
+    createMarkupForLibrary(quequeFilms);
+  } else {
+    libraryRefs.libraryList.innerHTML = '';
+    libraryRefs.libraryStub.style.display = 'flex';
+  }
 }
 
 function createMarkupForLibrary(arr) {

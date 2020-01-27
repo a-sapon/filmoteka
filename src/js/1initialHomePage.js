@@ -7,7 +7,7 @@ const refs = {
   homePageContainer: document.querySelector('div.home-page'),
   searchForm: document.querySelector('.search-form'),
   searchInput: document.querySelector('input[name="search"]'),
-  filmsContainer: document.querySelector('.films_list'),
+  filmsContainer: document.querySelector('.js_films_list'),
   paginationPage: document.querySelector('.pagination_page'),
   btnNext: document.querySelector('[data-id="next"]'),
   btnPrev: document.querySelector('[data-id="prev"]'),
