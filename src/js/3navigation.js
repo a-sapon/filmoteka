@@ -4,11 +4,17 @@ const logoLink = document.getElementById('navigation-logo');
 
 libraryBtn.addEventListener('click', activeLibraryPage);
 homeBtn.addEventListener('click', activeHomePage);
-logoLink.addEventListener('click', activeHomePage);
+logoLink.addEventListener('click', activeHomePageWithPopularMovies);
 
 const homePage = document.querySelector('.home-page');
 const detailsPage = document.querySelector('.details_page');
 const libraryPage = document.getElementById('library-page');
+
+function activeHomePageWithPopularMovies() {
+  // activeHomePage();
+  // fetchPopularMoviesList();
+  window.location.reload();
+}
 
 function activeHomePage() {
   libraryBtn.classList.remove('nav__btn-active');

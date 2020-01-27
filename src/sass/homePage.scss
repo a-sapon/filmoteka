@@ -8,6 +8,7 @@
 input[name='search'] {
   background-image: url(../images/search-icon.png);
   background-repeat: no-repeat;
+  background-position-y: center;
   width: 257px;
   font-family: 'Roboto', sans-serif;
   font-size: 14.4px;
@@ -18,6 +19,10 @@ input[name='search'] {
 
   &::placeholder {
     color: #000000;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   @media (min-width: 768px) {

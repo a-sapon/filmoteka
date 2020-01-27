@@ -1,5 +1,10 @@
 .library-page {
   display: none;
+  min-height: calc(100vh - (67px + 85px));
+
+  @media (min-width: 768px) {
+    min-height: calc(100vh - (66px + 89px));
+  }
 }
 
 .btn-box {

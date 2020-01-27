@@ -37,6 +37,7 @@ function openClickedFilm(e) {
         renderDetailsPage(selectedFilm);
 
         infoFilmsQueue.map(film => {
+          console.log('film ----> :',film)
           if(film.id === selectedFilm.id) {
             queue.innerText = 'Delete from queue';
             
@@ -67,6 +68,7 @@ function renderDetailsPage(data) {
 
 function toggleToQueue() {
   if(queue.innerText === 'Add to queue') {
+    console.log('inner delete')
     queue.innerText = 'Delete from queue';
     infoFilmsQueue.push(selectedFilm);
     localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
@@ -86,6 +88,7 @@ function toggleToWatched() {
   } else if(watched.innerText === 'Delete from watched') {
     watched.innerText = 'Add to watched';
     let index = infoFilmsWatched.indexOf(selectedFilm);
+    console.log(index)
     infoFilmsWatched.splice(index, 1);
     localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
   }
