@@ -1,7 +1,6 @@
 const libraryRefs = {
-  // libraryList: document.getElementById('my-library-list'),
   watchedBtn: document.getElementById('watched-btn'),
-  queueBtn: document.getElementById('watch-later-btn'),
+  queueBtn: document.getElementById('watch-later-btn')
 };
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
