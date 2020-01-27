@@ -91,11 +91,24 @@ input[name="search"] {
     margin-bottom: 11px;
     position: relative;
 
+    &:hover {
+      cursor: pointer;
+    }
+
     @media (min-width: 768px) {
       margin-bottom: 16px;
       
       &:nth-child(odd) {
         margin-right: 23px;
+      }
+    }
+
+    @media (min-width: 1024px){
+      width: 466px;
+      height: 244px;
+      
+      &:nth-child(odd){
+        margin-right: 30px;
       }
     }
 
@@ -107,12 +120,32 @@ input[name="search"] {
       left: 0;
       right: 0;
       box-shadow: inset 0px -200px 97px -117px rgba(0,0,0,0.52);
+      border-radius: 10px;
     }
 
     &-image {
       width: 298px;
       height: 156px;
       border-radius: 10px;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        max-width: 100%;
+        max-height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: url(../images/film.jpg);
+        border-radius: 10px;
+      }
+
+      @media(min-width: 1024px){
+        width: 466px;
+        height: 244px;
+      }
     }
 
     &-title {
@@ -126,4 +159,11 @@ input[name="search"] {
       bottom: 10px;
     }
   }
+}
+
+.error {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  color: #ff0000;
+  margin-bottom: 36px;
 }
