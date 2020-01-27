@@ -2,7 +2,7 @@ const libraryRefs = {
   watchedBtn: document.getElementById('watched-btn'),
   queueBtn: document.getElementById('watch-later-btn'),
   libraryList: document.getElementById('library-list'),
-  libraryStub: document.getElementById('library-stub')
+  libraryStub: document.getElementById('library-stub'),
 };
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
@@ -10,22 +10,33 @@ libraryRefs.queueBtn.addEventListener('click', showQueue);
 libraryRefs.libraryList.addEventListener('click', openClickedFilm);
 
 function showWatchedMovies() {
-  if(infoFilmsWatched !== null) {
+  libraryRefs.queueBtn.classList.remove('active');
+  libraryRefs.watchedBtn.classList.add('active');
+
+  if (infoFilmsWatched !== null) {
+    libraryRefs.libraryList.style.display = 'flex';
     libraryRefs.libraryStub.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     createMarkupForLibrary(infoFilmsWatched);
   } else {
+    libraryRefs.libraryList.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     libraryRefs.libraryStub.style.display = 'flex';
   }
 }
 
+libraryRefs.queueBtn.classList.add('active');
+
 function showQueue() {
-  if(infoFilmsQueue !== null) {
+  libraryRefs.watchedBtn.classList.remove('active');
+  libraryRefs.queueBtn.classList.add('active');
+  if (infoFilmsQueue !== null) {
+    libraryRefs.libraryList.style.display = 'flex';
     libraryRefs.libraryStub.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     createMarkupForLibrary(infoFilmsQueue);
   } else {
+    libraryRefs.libraryList.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     libraryRefs.libraryStub.style.display = 'flex';
   }

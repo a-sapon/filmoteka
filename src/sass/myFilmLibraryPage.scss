@@ -1,3 +1,7 @@
+.library-page {
+  display: none;
+}
+
 .btn-box {
   display: flex;
   justify-content: center;
@@ -26,6 +30,21 @@
   }
 }
 
+.active {
+  background-color: #77c1bb;
+  color: #ffffff;
+  border-bottom: 2px solid #77c1bb;
+  outline: none;
+}
+
+#library-list {
+  padding: 14px 0px;
+
+  @media (min-width: 768px) {
+    padding: 30px 0px 28px 0px;
+  }
+}
+
 .films_list-item-rating {
   position: absolute;
   top: 5%;
@@ -49,7 +68,6 @@
   align-items: center;
   height: calc(100vh - (65.6px + 62px + 88px));
   background-color: rgba(152, 148, 161, 0.15);
-  
 
   &_text {
     font-family: 'Roboto', sans-serif;
