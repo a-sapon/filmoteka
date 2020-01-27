@@ -18,6 +18,7 @@ const pageDetail = document.querySelector('.details_page');
 const blockImg = document.querySelector('.details-block__block-img');
 const listInfo = document.querySelector('.details-block__info--tech-info');
 const descriptionBlock = document.querySelector('.details-block__info--about');
+
 queue.addEventListener('click', toggleToQueue);
 watched.addEventListener('click', toggleToWatched);
 
@@ -38,10 +39,10 @@ function openClickedFilm(e) {
 function renderDetailsPage(data) {
   blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   titleFilm.innerHTML = data.title;
-  listInfo.children[1].lastElementChild.innerText = `${data.vote_average} / ${data.vote_count}`;
-  listInfo.children[2].lastElementChild.innerText = data.popularity;
-  listInfo.children[3].lastElementChild.innerText = data.original_title;
-  listInfo.children[4].lastElementChild.innerText = data.genres.map(elem => elem.name).join(', ');
+  listInfo.children[0].lastElementChild.innerText = `${data.vote_average} / ${data.vote_count}`;
+  listInfo.children[1].lastElementChild.innerText = data.popularity;
+  listInfo.children[2].lastElementChild.innerText = data.original_title;
+  listInfo.children[3].lastElementChild.innerText = data.genres.map(elem => elem.name).join(', ');
   descriptionBlock.lastElementChild.innerText = data.overview;
 }
 
@@ -50,7 +51,7 @@ function toggleToQueue() {
     let index = infoFilmsQueue.indexOf(selectedFilm.id);
     infoFilmsQueue.splice(index, 1);
   } else {
-    infoFilmsQueue.push(selectedFilm.id);
+    infoFilmsQueue.push(selectedFilm);
   }
   localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
   monitorButtonStatusText(selectedFilm.id, 'filmsQueue');
@@ -63,11 +64,16 @@ function toggleToWatched() {
     infoFilmsWatched.push(selectedFilm);
   }
   localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
-  const aaa=JSON.parse(localStorage.getItem('filmsWatched'));
-  console.log(aaa)
   monitorButtonStatusText(selectedFilm.id, 'filmsWatched');
 }
+// function checkButton() {
+//   let resultInfoFilmsQueue = parse.JSON(localStorage.getItem('filmsQueue'));
+//   console.dir(resultInfoFilmsQueue)
+//   if (resultInfoFilmsQueue.includes(id)) {
+//     queue.innerText ='Delete from queue';
+//    };
 
+// }
 function monitorButtonStatusText(id, keyStorage) {
   switch (keyStorage) {
     case 'filmsQueue':
