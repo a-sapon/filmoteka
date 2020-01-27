@@ -34,17 +34,15 @@ function openClickedFilm(e) {
       .then(data => {
         selectedFilm = data;
         renderDetailsPage(selectedFilm);
-
         infoFilmsQueue.map(obj => {
           if (obj.id === selectedFilm.id) {
-            queue.innerText = 'Delete from watched';
+            queue.innerText = 'Delete from queue';
             infoFilmsQueue = infoFilmsQueue.filter(el => el.id !== selectedFilm.id);
           }
         });
       });
   }
 }
-
 
 function renderDetailsPage(data) {
   blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
