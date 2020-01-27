@@ -1,0 +1,125 @@
+.details_page {
+  display: none;
+}
+
+.details-block {
+  margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 28px;
+  }
+
+  &__block-img {
+    width: 273px;
+    height: 404px;
+
+    @media (min-width: 768px) {
+      width: 356px;
+      height: 526px;
+      margin-right: 22px;
+    }
+
+    @media (min-width: 1024px) {
+      width: 433px;
+      height: 638px;
+      margin-right: 36px;
+    }
+  }
+
+  &__info--tech-info {
+    margin-bottom: 24px;
+    @media (min-width: 1024px) {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__info--about {
+    @media (min-width: 768px) {
+      margin-bottom: 35px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  @media (min-width: 1024px) {
+    margin-bottom: 30px;
+  }
+}
+
+.block-btn {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto 12px;
+
+  @media (min-width: 768px) {
+    margin: 0;
+    justify-content: flex-start;
+  }
+}
+
+.btn {
+  width: 150px;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-position-y: center;
+  padding-left: 20px;
+  text-align: left;
+
+  &-addWatch {
+    background-image: url(../images/wotch.jpg);
+  }
+
+  &-addQueue {
+    background-image: url(../images/add.png);
+  }
+}
+
+.title-moive {
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.tech-info-item {
+  display: flex;
+  padding-left: 15px;
+
+  &:nth-child(even) {
+    background-color: #addad6;
+  }
+
+  &__first-item {
+    width: 126px;
+  }
+
+  p {
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    line-height: 25px;
+  }
+}
+
+.about-description {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  color: rgba(55, 44, 72, 0.541);
+  text-align: justify;
+}
+@media (min-width: 768px) {
+  .wrapper-btn-info {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
+    width: 400px;
+  }
+}

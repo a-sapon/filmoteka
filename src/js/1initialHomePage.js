@@ -35,6 +35,7 @@ refs.filmsContainer.addEventListener('click', openClickedFilm);
 refs.paginationPage.textContent = filmsInfo.page;
 
 function fetchPopularMoviesList() {
+  libraryPage.style.display = 'none';
   filmsInfo.value = '';
   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
@@ -82,7 +83,7 @@ function createCardFunc(arr) {
       alt="${film.title} image"
       class="films_list-item-image"
     >
-    <h3 class="films_list-item-title">${film.title}</h3>
+    <h3 class="films_list-item-title">${film.title} (<span>${film.release_date}</span>)</h3>
   </li>
   `;
     refs.filmsContainer.insertAdjacentHTML('beforeend', markup);
@@ -120,12 +121,3 @@ function paginationNavigation(e) {
 // }
 // const genres = genreFilms();
 // console.log(genres)
-
-function openClickedFilm(e) {
-  if (e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
-    const li = e.target.closest('.films_list-item');
-    fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
-      .then(response => response.json())
-      .then(data => console.log(data));
-  }
-}
