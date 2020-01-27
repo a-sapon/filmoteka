@@ -1,27 +1,29 @@
 .details_page {
   display: none;
-  padding: 20px 0px;
+  margin: 20px 0px;
 
   @media (min-width: 768px) {
+    margin: 0 auto;
     padding: 24px 0px;
     min-height: calc(100vh - (66px + 89px));
+  }
+
+  @media (min-width: 1024px) {
+    padding: 40px 0px;
   }
 }
 
 .details-block {
   &__block-img {
-    width: 273px;
     margin-bottom: 15px;
 
     @media (min-width: 768px) {
       width: 356px;
-      height: 526px;
       margin-right: 22px;
     }
 
     @media (min-width: 1024px) {
       width: 433px;
-      height: 638px;
       margin-right: 36px;
     }
   }
@@ -41,10 +43,8 @@
 
   @media (min-width: 768px) {
     display: flex;
-    margin-bottom: 20px;
   }
   @media (min-width: 1024px) {
-    margin-bottom: 30px;
   }
 }
 

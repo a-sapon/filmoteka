@@ -40,10 +40,10 @@ function openClickedFilm(e) {
 function renderDetailsPage(data) {
   blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   titleFilm.innerHTML = data.title;
-  listInfo.children[1].lastElementChild.innerText = `${data.vote_average} / ${data.vote_count}`;
-  listInfo.children[2].lastElementChild.innerText = data.popularity;
-  listInfo.children[3].lastElementChild.innerText = data.original_title;
-  listInfo.children[4].lastElementChild.innerText = data.genres.map(elem => elem.name).join(', ');
+  listInfo.children[0].lastElementChild.innerText = `${data.vote_average} / ${data.vote_count}`;
+  listInfo.children[1].lastElementChild.innerText = data.popularity;
+  listInfo.children[2].lastElementChild.innerText = data.original_title;
+  listInfo.children[3].lastElementChild.innerText = data.genres.map(elem => elem.name).join(', ');
   descriptionBlock.lastElementChild.innerText = data.overview;
 }
 
