@@ -34,6 +34,13 @@ function openClickedFilm(e) {
       .then(data => {
         selectedFilm = data;
         renderDetailsPage(selectedFilm);
+
+        infoFilmsQueue.map(obj => {
+          if (obj.id === selectedFilm.id) {
+            queue.innerText = 'Delete from watched';
+            infoFilmsQueue = infoFilmsQueue.filter(el => el.id !== selectedFilm.id);
+          }
+        });
       });
   }
 }
@@ -44,7 +51,9 @@ function renderDetailsPage(data) {
   listInfo.children[0].lastElementChild.innerText = `${data.vote_average} / ${data.vote_count}`;
   listInfo.children[1].lastElementChild.innerText = data.popularity;
   listInfo.children[2].lastElementChild.innerText = data.original_title;
-  listInfo.children[3].lastElementChild.innerText = data.genres.map(elem => elem.name).join(', ');
+  listInfo.children[3].lastElementChild.innerText = data.genres
+    .map(elem => elem.name)
+    .join(', ');
   descriptionBlock.lastElementChild.innerText = data.overview;
 }
 
