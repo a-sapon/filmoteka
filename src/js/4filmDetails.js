@@ -12,8 +12,6 @@ if (!infoFilmsWatched) {
 }
 
 // for rendering
-const homePage = document.querySelector('.home-page');
-const detailsPage = document.querySelector('.details_page');
 const blockImg = document.querySelector('.details-block__block-img');
 const listInfo = document.querySelector('.details-block__info--tech-info');
 const descriptionBlock = document.querySelector('.details-block__info--about');
