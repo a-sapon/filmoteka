@@ -152,8 +152,7 @@ footer,
 header,
 hgroup,
 menu,
-nav,
-section {
+nav {
   display: block;
 }
 
@@ -216,3 +215,8 @@ button {
     width: 964px;
   }
 }
+
+// .hide {
+//   opacity: 0;
+//   visibility: hidden;
+// }

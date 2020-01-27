@@ -13,7 +13,7 @@ if (!infoFilmsWatched) {
 
 // for rendering
 const homePage = document.querySelector('.home-page');
-const pageDetail = document.querySelector('.details_page');
+const detailsPage = document.querySelector('.details_page');
 const blockImg = document.querySelector('.details-block__block-img');
 const listInfo = document.querySelector('.details-block__info--tech-info');
 const descriptionBlock = document.querySelector('.details-block__info--about');
@@ -23,7 +23,8 @@ watched.addEventListener('click', toggleToWatched);
 
 function openClickedFilm(e) {
   homePage.style.display = 'none';
-  pageDetail.style.display = 'block';
+  libraryPage.style.display = 'none';
+  detailsPage.style.display = 'block';
   if (e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
     const li = e.target.closest('.films_list-item');
     fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
