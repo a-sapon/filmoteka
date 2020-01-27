@@ -1,29 +1,34 @@
 const libraryRefs = {
   watchedBtn: document.getElementById('watched-btn'),
-  queueBtn: document.getElementById('watch-later-btn')
+  queueBtn: document.getElementById('watch-later-btn'),
+  libraryList: document.getElementById('library-list'),
+  libraryStub: document.getElementById('library-stub')
 };
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
 libraryRefs.queueBtn.addEventListener('click', showQueue);
+libraryRefs.libraryList.addEventListener('click', openClickedFilm);
 
 function showWatchedMovies() {
-  refs.filmsContainer.innerHTML = '';
-  // need to change this to WATCHED instead of popular
-  fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
-    .then(response => response.json())
-    .then(data => {
-      createMarkupForLibrary(data.results);
-    });
+  if(infoFilmsWatched !== null) {
+    libraryRefs.libraryStub.style.display = 'none';
+    libraryRefs.libraryList.innerHTML = '';
+    createMarkupForLibrary(infoFilmsWatched);
+  } else {
+    libraryRefs.libraryList.innerHTML = '';
+    libraryRefs.libraryStub.style.display = 'flex';
+  }
 }
 
 function showQueue() {
-  refs.filmsContainer.innerHTML = '';
-  // need to change this to QUEUE FILMS instead of popular
-  fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
-    .then(response => response.json())
-    .then(data => {
-      createMarkupForLibrary(data.results);
-    });
+  if(infoFilmsQueue !== null) {
+    libraryRefs.libraryStub.style.display = 'none';
+    libraryRefs.libraryList.innerHTML = '';
+    createMarkupForLibrary(infoFilmsQueue);
+  } else {
+    libraryRefs.libraryList.innerHTML = '';
+    libraryRefs.libraryStub.style.display = 'flex';
+  }
 }
 
 function createMarkupForLibrary(arr) {
@@ -41,5 +46,5 @@ function createMarkupForLibrary(arr) {
             </li>`;
     return acc;
   }, '');
-  refs.filmsContainer.insertAdjacentHTML('beforeend', markup);
+  libraryRefs.libraryList.insertAdjacentHTML('beforeend', markup);
 }

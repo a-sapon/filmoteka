@@ -7,7 +7,7 @@ const refs = {
   homePageContainer: document.querySelector('div.home-page'),
   searchForm: document.querySelector('.search-form'),
   searchInput: document.querySelector('input[name="search"]'),
-  filmsContainer: document.querySelector('.films_list'),
+  filmsContainer: document.querySelector('.js_films_list'),
   paginationPage: document.querySelector('.pagination_page'),
   btnNext: document.querySelector('[data-id="next"]'),
   btnPrev: document.querySelector('[data-id="prev"]'),
@@ -107,17 +107,3 @@ function paginationNavigation(e) {
       : (refs.btnPrev.disabled = false);
   }
 }
-
-// function genreFilms() {
-//   const genres = [];
-//   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=1`)
-//   .then(response => response.json())
-//   .then(data => {
-//     data.results.map(film => {
-//       genres.push(film.genre_ids)
-//     });
-//   });
-//   return genres;
-// }
-// const genres = genreFilms();
-// console.log(genres)
