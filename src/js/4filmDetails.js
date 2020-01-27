@@ -34,12 +34,8 @@ function openClickedFilm(e) {
       .then(data => {
         selectedFilm = data;
         renderDetailsPage(selectedFilm);
-        infoFilmsQueue.map(obj => {
-          if (obj.id === selectedFilm.id) {
-            queue.innerText = 'Delete from queue';
-            infoFilmsQueue = infoFilmsQueue.filter(el => el.id !== selectedFilm.id);
-          }
-        });
+        monitorButtonStatusText('filmsWatched');
+        monitorButtonStatusText('filmsQueue');
       });
   }
 }
@@ -57,38 +53,40 @@ function renderDetailsPage(data) {
 }
 
 function toggleToQueue() {
-  if (infoFilmsQueue.includes(selectedFilm)) {
-    let index = infoFilmsQueue.indexOf(selectedFilm);
+  let findObj = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
+  if(findObj){
+    let index = infoFilmsQueue.indexOf(selectedFilm); 
     infoFilmsQueue.splice(index, 1);
-  } else {
-    infoFilmsQueue.push(selectedFilm);
+  }else{
+    infoFilmsQueue.push(selectedFilm); 
   }
   localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
-  monitorButtonStatusText(selectedFilm, 'filmsQueue');
+  monitorButtonStatusText('filmsQueue');
 }
 
 function toggleToWatched() {
-  if (infoFilmsWatched.includes(selectedFilm)) {
-    let index = infoFilmsWatched.indexOf(selectedFilm);
+  let findObj = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
+  if(findObj){
+    let index = infoFilmsWatched.indexOf(selectedFilm); 
     infoFilmsWatched.splice(index, 1);
-  } else {
-    infoFilmsWatched.push(selectedFilm);
+  }else{
+    infoFilmsWatched.push(selectedFilm); 
   }
   localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
-  monitorButtonStatusText(selectedFilm, 'filmsWatched');
+  monitorButtonStatusText('filmsWatched');
 }
 
-function monitorButtonStatusText(obj, keyStorage) {
+function monitorButtonStatusText(keyStorage) {
+  let finded;
   switch (keyStorage) {
     case 'filmsQueue':
-      queue.innerText = infoFilmsQueue.includes(obj)
-        ? 'Delete from queue'
-        : 'Add to queue';
+      finded = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
+      queue.innerText = finded ? 'Delete from queue' : 'Add to queue';
       break;
     case 'filmsWatched':
-      watched.innerText = infoFilmsWatched.includes(obj)
-        ? 'Delete from watched'
-        : 'Add to watched';
+      finded = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
+      watched.innerText = finded ? 'Delete from watched' : 'Add to watched';
       break;
   }
 }
+
