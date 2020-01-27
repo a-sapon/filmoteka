@@ -34,9 +34,7 @@ function openClickedFilm(e) {
       });
   }
 }
-function checkButton() {
 
-}
 
 function renderDetailsPage(data) {
   blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
@@ -51,7 +49,6 @@ function renderDetailsPage(data) {
 function toggleToQueue() {
   if (infoFilmsQueue.includes(selectedFilm)) {
     let index = infoFilmsQueue.indexOf(selectedFilm);
-    console.log(index)
     infoFilmsQueue.splice(index, 1);
   } else {
     infoFilmsQueue.push(selectedFilm);
