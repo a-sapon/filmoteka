@@ -34,6 +34,9 @@ function openClickedFilm(e) {
       });
   }
 }
+function checkButton() {
+
+}
 
 function renderDetailsPage(data) {
   blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
@@ -46,35 +49,36 @@ function renderDetailsPage(data) {
 }
 
 function toggleToQueue() {
-  if (infoFilmsQueue.includes(selectedFilm.id)) {
-    let index = infoFilmsQueue.indexOf(selectedFilm.id);
+  if (infoFilmsQueue.includes(selectedFilm)) {
+    let index = infoFilmsQueue.indexOf(selectedFilm);
+    console.log(index)
     infoFilmsQueue.splice(index, 1);
   } else {
     infoFilmsQueue.push(selectedFilm);
   }
   localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
-  monitorButtonStatusText(selectedFilm.id, 'filmsQueue');
+  monitorButtonStatusText(selectedFilm, 'filmsQueue');
 }
 function toggleToWatched() {
-  if (infoFilmsWatched.includes(selectedFilm.id)) {
-    let index = infoFilmsWatched.indexOf(selectedFilm.id);
+  if (infoFilmsWatched.includes(selectedFilm)) {
+    let index = infoFilmsWatched.indexOf(selectedFilm);
     infoFilmsWatched.splice(index, 1);
   } else {
     infoFilmsWatched.push(selectedFilm);
   }
   localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
-  monitorButtonStatusText(selectedFilm.id, 'filmsWatched');
+  monitorButtonStatusText(selectedFilm, 'filmsWatched');
 }
 
-function monitorButtonStatusText(id, keyStorage) {
+function monitorButtonStatusText(obj, keyStorage) {
   switch (keyStorage) {
     case 'filmsQueue':
-      queue.innerText = infoFilmsQueue.includes(id)
+      queue.innerText = infoFilmsQueue.includes(obj)
         ? 'Delete from queue'
         : 'Add to queue';
       break;
     case 'filmsWatched':
-      watched.innerText = infoFilmsWatched.includes(id)
+      watched.innerText = infoFilmsWatched.includes(obj)
         ? 'Delete from watched'
         : 'Add to watched';
       break;
