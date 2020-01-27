@@ -1,33 +1,23 @@
 const libraryRefs = {
   watchedBtn: document.getElementById('watched-btn'),
   queueBtn: document.getElementById('watch-later-btn'),
+  libraryList: document.getElementById('library-list'),
 };
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
 libraryRefs.queueBtn.addEventListener('click', showQueue);
 
 function showWatchedMovies() {
-  refs.filmsContainer.innerHTML = '';
+  libraryRefs.libraryList.innerHTML = '';
   // need to change this to WATCHED instead of popular
-  // localStorage.getItem('filmsWatched')
-
-  fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
-    .then(response => response.json())
-    .then(data => {
-      // console.log(data)
-      createMarkupForLibrary(data.results);
-    });
+  const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
+  createMarkupForLibrary(watchedFilms);
 }
 
 function showQueue() {
-  refs.filmsContainer.innerHTML = '';
-  // need to change this to QUEUE FILMS instead of popular
-  // localStorage.getItem('filmsWatched')
-  fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
-    .then(response => response.json())
-    .then(data => {
-      createMarkupForLibrary(data.results);
-    });
+  libraryRefs.libraryList.innerHTML = '';
+  const quequeFilms = JSON.parse(localStorage.getItem('filmsQueue'));
+  createMarkupForLibrary(quequeFilms);
 }
 
 function createMarkupForLibrary(arr) {
@@ -45,5 +35,5 @@ function createMarkupForLibrary(arr) {
             </li>`;
     return acc;
   }, '');
-  refs.filmsContainer.insertAdjacentHTML('beforeend', markup);
+  libraryRefs.libraryList.insertAdjacentHTML('beforeend', markup);
 }
