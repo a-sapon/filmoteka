@@ -7,13 +7,13 @@ const libraryRefs = {
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
 libraryRefs.queueBtn.addEventListener('click', showQueue);
+libraryRefs.libraryList.addEventListener('click', openClickedFilm);
 
 function showWatchedMovies() {
-  const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
-  if(watchedFilms !== null) {
+  if(infoFilmsWatched !== null) {
     libraryRefs.libraryStub.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
-    createMarkupForLibrary(watchedFilms);
+    createMarkupForLibrary(infoFilmsWatched);
   } else {
     libraryRefs.libraryList.innerHTML = '';
     libraryRefs.libraryStub.style.display = 'flex';
@@ -21,11 +21,10 @@ function showWatchedMovies() {
 }
 
 function showQueue() {
-  const quequeFilms = JSON.parse(localStorage.getItem('filmsQueue'));
-  if(quequeFilms !== null) {
+  if(infoFilmsQueue !== null) {
     libraryRefs.libraryStub.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
-    createMarkupForLibrary(quequeFilms);
+    createMarkupForLibrary(infoFilmsQueue);
   } else {
     libraryRefs.libraryList.innerHTML = '';
     libraryRefs.libraryStub.style.display = 'flex';

@@ -107,17 +107,3 @@ function paginationNavigation(e) {
       : (refs.btnPrev.disabled = false);
   }
 }
-
-// function genreFilms() {
-//   const genres = [];
-//   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=1`)
-//   .then(response => response.json())
-//   .then(data => {
-//     data.results.map(film => {
-//       genres.push(film.genre_ids)
-//     });
-//   });
-//   return genres;
-// }
-// const genres = genreFilms();
-// console.log(genres)
