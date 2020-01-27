@@ -51,7 +51,7 @@ function toggleToQueue() {
     let index = infoFilmsQueue.indexOf(selectedFilm.id);
     infoFilmsQueue.splice(index, 1);
   } else {
-    infoFilmsQueue.push(selectedFilm.id);
+    infoFilmsQueue.push(selectedFilm);
   }
   localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
   monitorButtonStatusText(selectedFilm.id, 'filmsQueue');
