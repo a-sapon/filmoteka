@@ -56,6 +56,7 @@ function toggleToQueue() {
   localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
   monitorButtonStatusText(selectedFilm.id, 'filmsQueue');
 }
+
 function toggleToWatched() {
   if (infoFilmsWatched.includes(selectedFilm.id)) {
     let index = infoFilmsWatched.indexOf(selectedFilm.id);

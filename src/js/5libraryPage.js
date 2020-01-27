@@ -9,6 +9,8 @@ libraryRefs.queueBtn.addEventListener('click', showQueue);
 function showWatchedMovies() {
   refs.filmsContainer.innerHTML = '';
   // need to change this to WATCHED instead of popular
+  // localStorage.getItem('filmsWatched')
+
   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
     .then(data => {
@@ -20,6 +22,7 @@ function showWatchedMovies() {
 function showQueue() {
   refs.filmsContainer.innerHTML = '';
   // need to change this to QUEUE FILMS instead of popular
+  // localStorage.getItem('filmsWatched')
   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
     .then(data => {
