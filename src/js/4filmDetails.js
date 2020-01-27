@@ -13,8 +13,6 @@ if (!infoFilmsWatched) {
 
 // for rendering
 const titleFilm = document.querySelector('.title-moive');
-// const homePage = document.querySelector('.home-page');
-// const pageDetail = document.querySelector('.details_page');
 const blockImg = document.querySelector('.details-block__block-img');
 const listInfo = document.querySelector('.details-block__info--tech-info');
 const descriptionBlock = document.querySelector('.details-block__info--about');
@@ -67,14 +65,7 @@ function toggleToWatched() {
   localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
   monitorButtonStatusText(selectedFilm.id, 'filmsWatched');
 }
-// function checkButton() {
-//   let resultInfoFilmsQueue = parse.JSON(localStorage.getItem('filmsQueue'));
-//   console.dir(resultInfoFilmsQueue)
-//   if (resultInfoFilmsQueue.includes(id)) {
-//     queue.innerText ='Delete from queue';
-//    };
 
-// }
 function monitorButtonStatusText(id, keyStorage) {
   switch (keyStorage) {
     case 'filmsQueue':
