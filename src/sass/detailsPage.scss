@@ -1,14 +1,14 @@
 .details_page {
   display: none;
+  padding: 20px 0px;
+
+  @media (min-width: 768px) {
+    padding: 24px 0px;
+    min-height: calc(100vh - (66px + 89px));
+  }
 }
 
 .details-block {
-  margin-bottom: 20px;
-
-  @media (min-width: 768px) {
-    margin-bottom: 28px;
-  }
-
   &__block-img {
     width: 273px;
     margin-bottom: 15px;
