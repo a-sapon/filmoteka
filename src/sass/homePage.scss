@@ -1,23 +1,28 @@
 .search-form {
   display: flex;
   justify-content: center;
+  padding: 20px 0px 24px 0px;
+  box-shadow: 0px 5px 9px 1px rgba(0, 0, 0, 0.23);
 }
 
-input[name="search"] {
+input[name='search'] {
   background-image: url(../images/search-icon.png);
   background-repeat: no-repeat;
   width: 257px;
   font-family: 'Roboto', sans-serif;
   font-size: 14.4px;
+  line-height: 28px;
   padding-left: 28px;
   border: none;
   border-bottom: 2px solid #9894a1;
-  margin-bottom: 36px;
+
+  &::placeholder {
+    color: #000000;
+  }
 
   @media (min-width: 768px) {
     font-size: 16px;
-    line-height: 16px;
-    width: 285px;  
+    width: 285px;
   }
 }
 
@@ -32,9 +37,21 @@ input[name="search"] {
   &_btn {
     width: 94px;
     height: 46px;
-    background-image: -moz-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    background-image: -moz-linear-gradient(
+      90deg,
+      rgb(240, 240, 240) 0%,
+      rgba(240, 240, 240, 0) 100%
+    );
+    background-image: -webkit-linear-gradient(
+      90deg,
+      rgb(240, 240, 240) 0%,
+      rgba(240, 240, 240, 0) 100%
+    );
+    background-image: -ms-linear-gradient(
+      90deg,
+      rgb(240, 240, 240) 0%,
+      rgba(240, 240, 240, 0) 100%
+    );
     border: 1px solid #dddddd;
     border-radius: 5px;
     box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.004);
@@ -44,7 +61,7 @@ input[name="search"] {
 
     @media (min-width: 768px) {
       width: 74px;
-      height: 36px; 
+      height: 36px;
     }
   }
 
@@ -59,9 +76,21 @@ input[name="search"] {
     border: 1px solid #dddddd;
     border-radius: 5px;
     box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.004);
-    background-image: -moz-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
-    background-image: -webkit-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
-    background-image: -ms-linear-gradient( 90deg, rgb(240,240,240) 0%, rgba(240,240,240,0) 100%);
+    background-image: -moz-linear-gradient(
+      90deg,
+      rgb(240, 240, 240) 0%,
+      rgba(240, 240, 240, 0) 100%
+    );
+    background-image: -webkit-linear-gradient(
+      90deg,
+      rgb(240, 240, 240) 0%,
+      rgba(240, 240, 240, 0) 100%
+    );
+    background-image: -ms-linear-gradient(
+      90deg,
+      rgb(240, 240, 240) 0%,
+      rgba(240, 240, 240, 0) 100%
+    );
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,17 +107,17 @@ input[name="search"] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 28px;
+  padding: 14px 0px 28px 0px;
 
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    padding: 30px 0px 20px 0px;
   }
 
   @media (min-width: 1024px) {
-    margin-bottom: 15px;
+    padding: 30px 0px 15px 0px;
   }
 
   &-item {
@@ -111,10 +140,10 @@ input[name="search"] {
     @media (min-width: 768px) {
       margin-bottom: 16px;
 
-      &:nth-last-of-type(-n+2) {
+      &:nth-last-of-type(-n + 2) {
         margin-bottom: 0;
       }
-      
+
       &:nth-child(odd) {
         margin-right: 23px;
       }
@@ -123,20 +152,20 @@ input[name="search"] {
     @media (min-width: 1024px) {
       width: 466px;
       height: 244px;
-      
-      &:nth-child(odd){
+
+      &:nth-child(odd) {
         margin-right: 30px;
       }
     }
 
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-      box-shadow: inset 0px -200px 97px -117px rgba(0,0,0,0.52);
+      box-shadow: inset 0px -200px 97px -117px rgba(0, 0, 0, 0.52);
       border-radius: 10px;
     }
 
@@ -159,7 +188,7 @@ input[name="search"] {
         border-radius: 10px;
       }
 
-      @media(min-width: 1024px){
+      @media (min-width: 1024px) {
         width: 466px;
         height: 244px;
       }
@@ -167,7 +196,7 @@ input[name="search"] {
 
     &-title {
       font-size: 12.3px;
-      font-family: "Roboto", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-weight: 500;
       color: #ffffff;
       line-height: 1.2;

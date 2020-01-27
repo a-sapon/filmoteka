@@ -2,7 +2,7 @@ const libraryRefs = {
   watchedBtn: document.getElementById('watched-btn'),
   queueBtn: document.getElementById('watch-later-btn'),
   libraryList: document.getElementById('library-list'),
-  libraryStub: document.getElementById('library-stub')
+  libraryStub: document.getElementById('library-stub'),
 };
 
 libraryRefs.watchedBtn.addEventListener('click', showWatchedMovies);
@@ -10,23 +10,34 @@ libraryRefs.queueBtn.addEventListener('click', showQueue);
 
 function showWatchedMovies() {
   const watchedFilms = JSON.parse(localStorage.getItem('filmsWatched'));
-  if(watchedFilms !== null) {
+  libraryRefs.queueBtn.classList.remove('active');
+  libraryRefs.watchedBtn.classList.add('active');
+
+  if (watchedFilms !== null) {
+    libraryRefs.libraryList.style.display = 'flex';
     libraryRefs.libraryStub.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     createMarkupForLibrary(watchedFilms);
   } else {
+    libraryRefs.libraryList.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     libraryRefs.libraryStub.style.display = 'flex';
   }
 }
 
+libraryRefs.queueBtn.classList.add('active');
+
 function showQueue() {
   const quequeFilms = JSON.parse(localStorage.getItem('filmsQueue'));
-  if(quequeFilms !== null) {
+  libraryRefs.watchedBtn.classList.remove('active');
+  libraryRefs.queueBtn.classList.add('active');
+  if (quequeFilms !== null) {
+    libraryRefs.libraryList.style.display = 'flex';
     libraryRefs.libraryStub.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     createMarkupForLibrary(quequeFilms);
   } else {
+    libraryRefs.libraryList.style.display = 'none';
     libraryRefs.libraryList.innerHTML = '';
     libraryRefs.libraryStub.style.display = 'flex';
   }
