@@ -1,9 +1,38 @@
-.films_list-wrapper {
-  background-image: linear-gradient(
-      rgba(255, 255, 255, 0.6),
-      rgba(233, 211, 134, 0.534)
-    ),
+.home-page-wrapper {
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+  // top: 0;
+  // bottom: 0;
+  // z-index: -1;
+  // background: linear-gradient(
+  //   rgba(255, 255, 255, 0.6),
+  //   rgba(233, 211, 134, 0.534)
+  // ),
+  //   url(../images/background.jpg);
+  // background-repeat: repeat;
+  // animation-name: MOVE-BG;
+  // animation-duration: 50s;
+  // animation-timing-function: linear;
+  // animation-iteration-count: infinite;
+}
+
+.home-page {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.6),
+    rgba(233, 211, 134, 0.534)
+  ),
     url(../images/background.jpg);
+}
+
+@keyframes MOVE-BG {
+  from {
+    transform: translateX(0);
+  }
+
+  to { 
+    transform: translateX(-187%);
+  }
 }
 
 .search-form {
