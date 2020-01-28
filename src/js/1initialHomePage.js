@@ -26,6 +26,7 @@ const filmsInfo = {
     this.page = 1;
   },
 };
+//tr
 
 document.addEventListener('DOMContentLoaded', fetchPopularMoviesList);
 refs.searchForm.addEventListener('submit', searchFilms);
