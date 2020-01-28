@@ -2,11 +2,6 @@
   display: none;
   margin: 20px 0px;
 
-  background-image: linear-gradient(
-    rgba(255, 255, 255, 0.6),
-    rgba(233, 211, 134, 0.534)),
-    url(../images/background.jpg);
-
   @media (min-width: 768px) {
     margin: 0 auto;
     padding: 24px 0px;
@@ -18,12 +13,17 @@
   }
 }
 
-.details-block {  
-  background-color: lightgray;
+// .details-block {
+//   margin: 20px 0 20px 0;
 
+//   @media (min-width: 768px) {
+//     margin: 27px 0 27px 0;
+//   }
+// }
+
+.details-block {
   &__block-img {
     width: 273px;
-    
 
     @media (min-width: 768px) {
       width: 356px;
@@ -83,11 +83,11 @@
   outline: none;
 
   &-addWatch {
-    background-image: url(../images/logo3.png);
+    background-image: url(../images/watched.jpg);
   }
 
   &-addQueue {
-    background-image: url(../images/queue1.png);
+    background-image: url(../images/queue.png);
   }
 }
 
@@ -101,6 +101,10 @@
 .tech-info-item {
   display: flex;
   padding-left: 15px;
+
+  &:nth-child(even) {
+    background-color: #addad6;
+  }
 
   &__first-item {
     width: 126px;
@@ -127,6 +131,9 @@
 }
 @media (min-width: 768px) {
   .wrapper-btn-info {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
     width: 400px;
   }
 }

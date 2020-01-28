@@ -52,9 +52,6 @@ function renderDetailsPage(data) {
   listInfo.children[3].lastElementChild.innerText = data.genres
     .map(elem => elem.name)
     .join(', ');
-  listInfo.children[4].lastElementChild.innerText = data.production_companies
-    .map(elem => elem.name)
-    .join(', ');
   descriptionBlock.lastElementChild.innerText = data.overview;
 }
 
