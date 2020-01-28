@@ -33,13 +33,14 @@ function openClickedFilm(e) {
       .then(response => response.json())
       .then(data => {
         selectedFilm = data;
+        console.dir(selectedFilm)
         renderDetailsPage(selectedFilm);
         monitorButtonStatusText('filmsWatched');
         monitorButtonStatusText('filmsQueue');
       });
   }
 }
-
+console.dir(listInfo)
 function renderDetailsPage(data) {
   blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   titleFilm.innerHTML = data.title;
@@ -49,16 +50,19 @@ function renderDetailsPage(data) {
   listInfo.children[3].lastElementChild.innerText = data.genres
     .map(elem => elem.name)
     .join(', ');
+  listInfo.children[4].lastElementChild.innerText = data.production_companies
+    .map(elem => elem.name)
+    .join(', ');
   descriptionBlock.lastElementChild.innerText = data.overview;
 }
 
 function toggleToQueue() {
   let findObj = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
-  if(findObj){
-    let index = infoFilmsQueue.indexOf(selectedFilm); 
+  if (findObj) {
+    let index = infoFilmsQueue.indexOf(selectedFilm);
     infoFilmsQueue.splice(index, 1);
-  }else{
-    infoFilmsQueue.push(selectedFilm); 
+  } else {
+    infoFilmsQueue.push(selectedFilm);
   }
   localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
   monitorButtonStatusText('filmsQueue');
@@ -66,11 +70,11 @@ function toggleToQueue() {
 
 function toggleToWatched() {
   let findObj = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
-  if(findObj){
-    let index = infoFilmsWatched.indexOf(selectedFilm); 
+  if (findObj) {
+    let index = infoFilmsWatched.indexOf(selectedFilm);
     infoFilmsWatched.splice(index, 1);
-  }else{
-    infoFilmsWatched.push(selectedFilm); 
+  } else {
+    infoFilmsWatched.push(selectedFilm);
   }
   localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
   monitorButtonStatusText('filmsWatched');
