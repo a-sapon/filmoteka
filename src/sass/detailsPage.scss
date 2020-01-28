@@ -18,17 +18,12 @@
   }
 }
 
-// .details-block {
-//   margin: 20px 0 20px 0;
+.details-block {  
+  background-color: lightgray;
 
-//   @media (min-width: 768px) {
-//     margin: 27px 0 27px 0;
-//   }
-// }
-
-.details-block {
   &__block-img {
     width: 273px;
+    
 
     @media (min-width: 768px) {
       width: 356px;
@@ -107,10 +102,6 @@
   display: flex;
   padding-left: 15px;
 
-  &:nth-child(even) {
-    background-color: #addad6;
-  }
-
   &__first-item {
     width: 126px;
     text-align: start;
@@ -136,9 +127,6 @@
 }
 @media (min-width: 768px) {
   .wrapper-btn-info {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column-reverse;
     width: 400px;
   }
 }

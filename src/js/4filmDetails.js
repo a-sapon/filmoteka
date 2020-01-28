@@ -1,6 +1,5 @@
 const watched = document.querySelector('.btn-addWatch');
 const queue = document.querySelector('.btn-addQueue');
-
 let infoFilmsQueue = JSON.parse(localStorage.getItem('filmsQueue'));
 let infoFilmsWatched = JSON.parse(localStorage.getItem('filmsWatched'));
 let selectedFilm;
@@ -30,11 +29,9 @@ function openClickedFilm(e) {
   detailsPage.style.display = 'block';
   if (e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
     const li = e.target.closest('.films_list-item');
-    enablePreloader();
     fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(data => {
-        disablePreloader();
         selectedFilm = data;
         console.dir(selectedFilm)
         renderDetailsPage(selectedFilm);
@@ -62,11 +59,7 @@ function renderDetailsPage(data) {
 function toggleToQueue() {
   let findObj = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
   if (findObj) {
-<<<<<<< HEAD
     let index = infoFilmsQueue.indexOf(selectedFilm);
-=======
-    let index = infoFilmsQueue.indexOf(findObj);
->>>>>>> b1afa88a007f5dd55c1fd0f4e9c42db58b7c99d6
     infoFilmsQueue.splice(index, 1);
   } else {
     infoFilmsQueue.push(selectedFilm);
@@ -78,11 +71,7 @@ function toggleToQueue() {
 function toggleToWatched() {
   let findObj = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
   if (findObj) {
-<<<<<<< HEAD
     let index = infoFilmsWatched.indexOf(selectedFilm);
-=======
-    let index = infoFilmsWatched.indexOf(findObj);
->>>>>>> b1afa88a007f5dd55c1fd0f4e9c42db58b7c99d6
     infoFilmsWatched.splice(index, 1);
   } else {
     infoFilmsWatched.push(selectedFilm);
@@ -92,14 +81,20 @@ function toggleToWatched() {
 }
 
 function monitorButtonStatusText(keyStorage) {
-  const filmFromQueue = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
-  const filmFromWatched = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
+  const filmFromQueue = infoFilmsQueue.find(
+    elem => elem.id === selectedFilm.id,
+  );
+  const filmFromWatched = infoFilmsWatched.find(
+    elem => elem.id === selectedFilm.id,
+  );
   switch (keyStorage) {
     case 'filmsQueue':
-      queue.innerText = filmFromQueue ? 'Delete from queue' : 'Add to queue';
+      queue.innerText = filmFromQueue ? 'Delete from queue': 'Add to queue';
       break;
     case 'filmsWatched':
-      watched.innerText = filmFromWatched ? 'Delete from watched' : 'Add to watched';
+      watched.innerText = filmFromWatched
+        ? 'Delete from watched'
+        : 'Add to watched';
       break;
   }
 }
