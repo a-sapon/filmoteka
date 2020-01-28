@@ -4,15 +4,14 @@
 }
 
 .details-block {
-  margin-bottom: 20px;
+  margin: 20px 0 20px 0;
 
   @media (min-width: 768px) {
-    margin-bottom: 28px;
+    margin: 27px 0 27px 0;
   }
 
   &__block-img {
     width: 273px;
-    margin-bottom: 15px;
 
     @media (min-width: 768px) {
       width: 356px;

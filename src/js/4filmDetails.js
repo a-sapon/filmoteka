@@ -59,7 +59,11 @@ function renderDetailsPage(data) {
 function toggleToQueue() {
   let findObj = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
   if (findObj) {
+<<<<<<< HEAD
     let index = infoFilmsQueue.indexOf(selectedFilm);
+=======
+    let index = infoFilmsQueue.indexOf(findObj);
+>>>>>>> b1afa88a007f5dd55c1fd0f4e9c42db58b7c99d6
     infoFilmsQueue.splice(index, 1);
   } else {
     infoFilmsQueue.push(selectedFilm);
@@ -71,7 +75,11 @@ function toggleToQueue() {
 function toggleToWatched() {
   let findObj = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
   if (findObj) {
+<<<<<<< HEAD
     let index = infoFilmsWatched.indexOf(selectedFilm);
+=======
+    let index = infoFilmsWatched.indexOf(findObj);
+>>>>>>> b1afa88a007f5dd55c1fd0f4e9c42db58b7c99d6
     infoFilmsWatched.splice(index, 1);
   } else {
     infoFilmsWatched.push(selectedFilm);
@@ -81,16 +89,20 @@ function toggleToWatched() {
 }
 
 function monitorButtonStatusText(keyStorage) {
-  let finded;
+  const filmFromQueue = infoFilmsQueue.find(
+    elem => elem.id === selectedFilm.id,
+  );
+  const filmFromWatched = infoFilmsWatched.find(
+    elem => elem.id === selectedFilm.id,
+  );
   switch (keyStorage) {
     case 'filmsQueue':
-      finded = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
-      queue.innerText = finded ? 'Delete from queue' : 'Add to queue';
+      queue.innerText = filmFromQueue ? 'Delete from queue' : 'Add to queue';
       break;
     case 'filmsWatched':
-      finded = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
-      watched.innerText = finded ? 'Delete from watched' : 'Add to watched';
+      watched.innerText = filmFromWatched
+        ? 'Delete from watched'
+        : 'Add to watched';
       break;
   }
 }
-

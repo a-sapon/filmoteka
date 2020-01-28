@@ -35,7 +35,6 @@ refs.filmsContainer.addEventListener('click', openClickedFilm);
 refs.paginationPage.textContent = filmsInfo.page;
 
 function fetchPopularMoviesList() {
-  // libraryPage.style.display = 'none';
   filmsInfo.value = '';
   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
