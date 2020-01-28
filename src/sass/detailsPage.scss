@@ -13,10 +13,12 @@
   }
 }
 
-.details-block {
+.details-block {  
+  background-color: lightgray;
+
   &__block-img {
     width: 273px;
-    background-color: lightgray;
+    
 
     @media (min-width: 768px) {
       width: 356px;
@@ -94,10 +96,6 @@
 .tech-info-item {
   display: flex;
   padding-left: 15px;
-
-  &:nth-child(even) {
-    background-color: #addad6;
-  }
 
   &__first-item {
     width: 126px;
