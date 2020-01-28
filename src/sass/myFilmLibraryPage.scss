@@ -1,11 +1,13 @@
 .library-page {
   display: none;
+  
+  min-height: calc(100vh - (67px + 85px));
+
   background-image: linear-gradient(
     rgba(233, 211, 134, 0.534),
     rgba(0, 0, 0, 0.4),
     ),
     url(../images/background.jpg);
-  min-height: calc(100vh - (67px + 85px));
 
   @media (min-width: 768px) {
     min-height: calc(100vh - (66px + 89px));
