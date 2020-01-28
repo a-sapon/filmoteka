@@ -1,13 +1,16 @@
 <div class="home-page">
-  <form class="search-form">
-    <input type="text" name="search" placeholder="Write movie name and click Enter">
-  </form>
 
-  <ul class="films_list js_films_list container"></ul>
+  <div class="films_list-wrapper">
+    <form class="search-form" autocomplete="off">
+      <input type="text" name="search" placeholder="Write movie name and click Enter">
+    </form>
 
-  <div class="pagination">
-    <button data-id="prev" class="pagination_btn" disabled>Back</button>
-    <div class="pagination_page"></div>
-    <button data-id="next" class="pagination_btn">Next</button>
+    <ul class="films_list js_films_list container"></ul>
+
+    <div class="pagination">
+      <button data-id="prev" class="pagination_btn" disabled>Back</button>
+      <div class="pagination_page"></div>
+      <button data-id="next" class="pagination_btn">Next</button>
+    </div>
   </div>
 </div>

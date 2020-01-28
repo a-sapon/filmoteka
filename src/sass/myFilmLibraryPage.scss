@@ -1,5 +1,10 @@
 .library-page {
   display: none;
+  background-image: linear-gradient(
+    rgba(233, 211, 134, 0.534),
+    rgba(0, 0, 0, 0.4),
+    ),
+    url(../images/background.jpg);
   min-height: calc(100vh - (67px + 85px));
 
   @media (min-width: 768px) {
@@ -24,9 +29,9 @@
     cursor: pointer;
 
     &:hover {
-      background-color: #77c1bb;
+      background-color: #2e2d2d;
       color: #ffffff;
-      border-bottom: 2px solid #77c1bb;
+      border-bottom: 2px solid #2e2d2d;
     }
 
     &:focus {
@@ -36,9 +41,9 @@
 }
 
 .active {
-  background-color: #77c1bb;
+  background-color: #2e2d2d;
   color: #ffffff;
-  border-bottom: 2px solid #77c1bb;
+  border-bottom: 2px solid #2e2d2d;
   outline: none;
 }
 
@@ -74,19 +79,17 @@
   height: calc(100vh - (65.6px + 62px + 88px));
   background-color: rgba(152, 148, 161, 0.15);
 
+  @media (min-width: 768px) {
+    height: calc(100vh - (66px + 62px + 90px));
+  }
+
   &_text {
     font-family: 'Roboto', sans-serif;
     font-size: 14.4px;
-    color: rgb(152, 148, 161);
-  }
-}
+    color: #ffffff;
 
-@media (min-width: 768px) {
-  .stub {
-    height: calc(100vh - (66px + 62px + 90px));
-
-    &_text {
-      font-size: 16px;
+    @media (min-width: 768px) {
+      font-size: 18px;
     }
   }
 }
