@@ -35,21 +35,8 @@ function openClickedFilm(e) {
       .then(data => {
         selectedFilm = data;
         renderDetailsPage(selectedFilm);
-
-        infoFilmsQueue.map(film => {
-          console.log('film ----> :',film)
-          if(film.id === selectedFilm.id) {
-            queue.innerText = 'Delete from queue';
-            
-          }
-        });
-
-        infoFilmsWatched.map(film => {
-          if(film.id === selectedFilm.id) {
-            watched.innerText = 'Delete from watched';
-            
-          }
-        })
+        monitorButtonStatusText('filmsWatched');
+        monitorButtonStatusText('filmsQueue');
       });
   }
 }
@@ -67,29 +54,40 @@ function renderDetailsPage(data) {
 }
 
 function toggleToQueue() {
-  if(queue.innerText === 'Add to queue') {
-    console.log('inner delete')
-    queue.innerText = 'Delete from queue';
-    infoFilmsQueue.push(selectedFilm);
-    localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
-  } else if(queue.innerText === 'Delete from queue') {
-    queue.innerText = 'Add to queue';
-    let index = infoFilmsQueue.indexOf(selectedFilm);
+  let findObj = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
+  if (findObj) {
+    let index = infoFilmsQueue.indexOf(findObj);
     infoFilmsQueue.splice(index, 1);
-    localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
+  } else {
+    infoFilmsQueue.push(selectedFilm);
   }
+  localStorage.setItem('filmsQueue', JSON.stringify(infoFilmsQueue));
+  monitorButtonStatusText('filmsQueue');
 }
 
 function toggleToWatched() {
-  if(watched.innerText === 'Add to watched') {
-    watched.innerText = 'Delete from watched';
-    infoFilmsWatched.push(selectedFilm);
-    localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
-  } else if(watched.innerText === 'Delete from watched') {
-    watched.innerText = 'Add to watched';
-    let index = infoFilmsWatched.indexOf(selectedFilm);
-    console.log(index)
+  let findObj = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
+  if (findObj) {
+    let index = infoFilmsWatched.indexOf(findObj);
     infoFilmsWatched.splice(index, 1);
-    localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
+  } else {
+    infoFilmsWatched.push(selectedFilm);
+  }
+  localStorage.setItem('filmsWatched', JSON.stringify(infoFilmsWatched));
+  monitorButtonStatusText('filmsWatched');
+}
+
+function monitorButtonStatusText(keyStorage) {
+  const filmFromQueue = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
+  const filmFromWatched = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
+  switch (keyStorage) {
+    case 'filmsQueue':
+      queue.innerText = filmFromQueue ? 'Delete from queue' : 'Add to queue';
+      break;
+    case 'filmsWatched':
+      watched.innerText = filmFromWatched
+        ? 'Delete from watched'
+        : 'Add to watched';
+      break;
   }
 }

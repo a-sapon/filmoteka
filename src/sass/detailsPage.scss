@@ -13,9 +13,17 @@
   }
 }
 
+// .details-block {
+//   margin: 20px 0 20px 0;
+
+//   @media (min-width: 768px) {
+//     margin: 27px 0 27px 0;
+//   }
+// }
+
 .details-block {
   &__block-img {
-    margin-bottom: 15px;
+    width: 273px;
 
     @media (min-width: 768px) {
       width: 356px;
@@ -72,13 +80,14 @@
   background-position-y: center;
   padding-left: 20px;
   text-align: left;
+  outline: none;
 
   &-addWatch {
-    background-image: url(../images/wotch.jpg);
+    background-image: url(../images/watched.jpg);
   }
 
   &-addQueue {
-    background-image: url(../images/add.png);
+    background-image: url(../images/queue.png);
   }
 }
 
@@ -99,10 +108,15 @@
 
   &__first-item {
     width: 126px;
-    text-align: left;
+    text-align: start;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    line-height: 25px;
   }
 
-  p {
+  &__second-item{
+    text-align: left;
+    width: 180px;
     font-family: 'Roboto', sans-serif;
     font-size: 13px;
     line-height: 25px;

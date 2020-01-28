@@ -4,7 +4,7 @@ const logoLink = document.getElementById('navigation-logo');
 
 libraryBtn.addEventListener('click', activeLibraryPage);
 homeBtn.addEventListener('click', activeHomePage);
-logoLink.addEventListener('click', activeHomePageWithPopularMovies);
+logoLink.addEventListener('click', resetAll);
 
 const homePage = document.querySelector('.home-page');
 const detailsPage = document.querySelector('.details_page');
@@ -31,4 +31,9 @@ function activeLibraryPage() {
   homePage.style.display = 'none';
   detailsPage.style.display = 'none';
   showQueue();
+}
+
+function resetAll() {
+  activeHomePage();
+  fetchPopularMoviesList();
 }
