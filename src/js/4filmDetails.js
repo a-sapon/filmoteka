@@ -89,7 +89,7 @@ function monitorButtonStatusText(keyStorage) {
   );
   switch (keyStorage) {
     case 'filmsQueue':
-      queue.innerText = filmFromQueue ? 'Delete from queue' : 'Add to queue';
+      queue.innerText = filmFromQueue ? 'Delete from queue': 'Add to queue';
       break;
     case 'filmsWatched':
       watched.innerText = filmFromWatched
