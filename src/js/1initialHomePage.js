@@ -36,20 +36,24 @@ refs.paginationPage.textContent = filmsInfo.page;
 
 function fetchPopularMoviesList() {
   filmsInfo.value = '';
+  enablePreloader();
   fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}&page=${filmsInfo.page}`)
     .then(response => response.json())
     .then(data => {
+      disablePreloader();
       refs.filmsContainer.innerHTML = '';
       createCardFunc(data.results);
     });
 }
 
 function fetchFilms() {
+  enablePreloader();
   fetch(
     `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmsInfo.value}&page=${filmsInfo.page}&include_adult=true`,
   )
     .then(response => response.json())
     .then(data => {
+      disablePreloader();
       if (data.results.length > 0) {
         refs.filmsContainer.innerHTML = '';
         createCardFunc(data.results);

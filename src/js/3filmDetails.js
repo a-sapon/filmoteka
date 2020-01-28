@@ -30,9 +30,11 @@ function openClickedFilm(e) {
   detailsPage.style.display = 'block';
   if (e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
     const li = e.target.closest('.films_list-item');
+    enablePreloader();
     fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
       .then(response => response.json())
       .then(data => {
+        disablePreloader();
         selectedFilm = data;
         renderDetailsPage(selectedFilm);
         monitorButtonStatusText('filmsWatched');
@@ -85,9 +87,7 @@ function monitorButtonStatusText(keyStorage) {
       queue.innerText = filmFromQueue ? 'Delete from queue' : 'Add to queue';
       break;
     case 'filmsWatched':
-      watched.innerText = filmFromWatched
-        ? 'Delete from watched'
-        : 'Add to watched';
+      watched.innerText = filmFromWatched ? 'Delete from watched' : 'Add to watched';
       break;
   }
 }
