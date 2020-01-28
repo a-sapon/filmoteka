@@ -2,6 +2,11 @@
   display: none;
   margin: 20px 0px;
 
+  background-image: linear-gradient(
+    rgba(255, 255, 255, 0.6),
+    rgba(233, 211, 134, 0.534)),
+    url(../images/background.jpg);
+
   @media (min-width: 768px) {
     margin: 0 auto;
     padding: 24px 0px;
