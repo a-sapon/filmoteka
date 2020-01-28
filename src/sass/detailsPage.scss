@@ -1,6 +1,10 @@
 .details_page {
   display: none;
   margin: 20px 0px;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.6),
+    rgba(233, 211, 134, 0.534)),
+    url(../images/background.jpg);
 
   @media (min-width: 768px) {
     margin: 0 auto;
@@ -12,14 +16,6 @@
     padding: 40px 0px;
   }
 }
-
-// .details-block {
-//   margin: 20px 0 20px 0;
-
-//   @media (min-width: 768px) {
-//     margin: 27px 0 27px 0;
-//   }
-// }
 
 .details-block {
   &__block-img {
@@ -102,10 +98,6 @@
   display: flex;
   padding-left: 15px;
 
-  &:nth-child(even) {
-    background-color: #addad6;
-  }
-
   &__first-item {
     width: 126px;
     text-align: start;
@@ -135,5 +127,7 @@
     justify-content: flex-end;
     flex-direction: column-reverse;
     width: 400px;
+    background-color: #dfdede;
+    padding: 0 40px 0 40px;
   }
 }

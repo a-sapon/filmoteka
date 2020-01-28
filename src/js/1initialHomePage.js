@@ -49,7 +49,7 @@ function fetchPopularMoviesList() {
 function fetchFilms() {
   enablePreloader();
   fetch(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmsInfo.value}&page=${filmsInfo.page}&include_adult=true`,
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&query=${filmsInfo.value}&page=${filmsInfo.page}`,
   )
     .then(response => response.json())
     .then(data => {
