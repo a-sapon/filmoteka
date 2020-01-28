@@ -1,6 +1,7 @@
 const homeBtn = document.querySelector('.home');
 const libraryBtn = document.querySelector('.library');
 const logoLink = document.getElementById('navigation-logo');
+const preloader = document.querySelector('.preloader-wrapper');
 
 libraryBtn.addEventListener('click', activeLibraryPage);
 homeBtn.addEventListener('click', activeHomePage);
@@ -30,4 +31,14 @@ function activeLibraryPage() {
 function resetAll() {
   activeHomePage();
   fetchPopularMoviesList();
+}
+
+function enablePreloader() {
+  document.body.style.opacity = '0.5';
+  preloader.style.display = 'block';
+}
+
+function disablePreloader() {
+  document.body.style.opacity = '1';
+  preloader.style.display = 'none';
 }
