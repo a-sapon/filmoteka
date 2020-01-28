@@ -62,11 +62,7 @@ function renderDetailsPage(data) {
 function toggleToQueue() {
   let findObj = infoFilmsQueue.find(elem => elem.id === selectedFilm.id);
   if (findObj) {
-<<<<<<< HEAD
-    let index = infoFilmsQueue.indexOf(selectedFilm);
-=======
     let index = infoFilmsQueue.indexOf(findObj);
->>>>>>> b1afa88a007f5dd55c1fd0f4e9c42db58b7c99d6
     infoFilmsQueue.splice(index, 1);
   } else {
     infoFilmsQueue.push(selectedFilm);
@@ -78,11 +74,7 @@ function toggleToQueue() {
 function toggleToWatched() {
   let findObj = infoFilmsWatched.find(elem => elem.id === selectedFilm.id);
   if (findObj) {
-<<<<<<< HEAD
-    let index = infoFilmsWatched.indexOf(selectedFilm);
-=======
     let index = infoFilmsWatched.indexOf(findObj);
->>>>>>> b1afa88a007f5dd55c1fd0f4e9c42db58b7c99d6
     infoFilmsWatched.splice(index, 1);
   } else {
     infoFilmsWatched.push(selectedFilm);
