@@ -36,14 +36,13 @@ function openClickedFilm(e) {
       .then(data => {
         disablePreloader();
         selectedFilm = data;
-        console.dir(selectedFilm)
         renderDetailsPage(selectedFilm);
         monitorButtonStatusText('filmsWatched');
         monitorButtonStatusText('filmsQueue');
       });
   }
 }
-console.dir(listInfo)
+
 function renderDetailsPage(data) {
   blockImg.firstChild.src = `https://image.tmdb.org/t/p/w500${data.poster_path}`;
   titleFilm.innerHTML = data.title;
