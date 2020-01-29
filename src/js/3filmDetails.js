@@ -25,10 +25,11 @@ queue.addEventListener('click', toggleToQueue);
 watched.addEventListener('click', toggleToWatched);
 
 function openClickedFilm(e) {
-  homePage.style.display = 'none';
-  libraryPage.style.display = 'none';
-  detailsPage.style.display = 'block';
   if (e.target.nodeName === 'LI' || e.target.nodeName === 'H3') {
+    homePage.style.display = 'none';
+    libraryPage.style.display = 'none';
+    detailsPage.style.display = 'block';
+
     const li = e.target.closest('.films_list-item');
     enablePreloader();
     fetch(`${BASE_URL}/movie/${li.dataset.id}?api_key=${API_KEY}`)
@@ -88,9 +89,11 @@ function monitorButtonStatusText(keyStorage) {
   switch (keyStorage) {
     case 'filmsQueue':
       queue.innerText = filmFromQueue ? 'Delete from queue' : 'Add to queue';
+      queue.style.backgroundImage = filmFromQueue ? 'url(../images/trash_icon.png)' : 'url(../images/queue1.png)';
       break;
     case 'filmsWatched':
       watched.innerText = filmFromWatched ? 'Delete from watched' : 'Add to watched';
+      watched.style.backgroundImage = filmFromWatched ? 'url(../images/trash_icon.png)' : 'url(../images/logo3.png)';
       break;
   }
 }
