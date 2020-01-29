@@ -93,16 +93,16 @@ function monitorButtonStatusText(keyStorage) {
     case 'filmsQueue':
       queue.innerText = filmFromQueue ? 'Delete from queue' : 'Add to queue';
       queue.style.backgroundImage = filmFromQueue
-        ? 'url(../images/trash_icon.png)'
-        : 'url(../images/queue1.png)';
+        ? 'url(./images/trash_icon.png)'
+        : 'url(./images/queue1.png)';
       break;
     case 'filmsWatched':
       watched.innerText = filmFromWatched
         ? 'Delete from watched'
         : 'Add to watched';
       watched.style.backgroundImage = filmFromWatched
-        ? 'url(../images/trash_icon.png)'
-        : 'url(../images/logo-blackCopy.png)';
+        ? 'url(./images/trash_icon.png)'
+        : 'url(./images/logo-blackCopy.png)';
       break;
   }
 }
