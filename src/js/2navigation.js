@@ -42,3 +42,24 @@ function disablePreloader() {
   document.body.style.opacity = '1';
   preloader.style.display = 'none';
 }
+
+
+const overlay = document.querySelector('.modal-overlay');
+
+document.querySelector('.footer-title').addEventListener('click', showModal);
+overlay.addEventListener('click', closeModal);
+
+function showModal() {
+  overlay.classList.remove('hide');
+  overlay.classList.add('show');
+}
+
+function closeModal(e) {
+  if (
+    e.target.classList.contains('close-icon') ||
+    e.target.classList.contains('modal-overlay')
+  ) {
+    overlay.classList.add('hide');
+    overlay.classList.remove('show');
+  }
+}
