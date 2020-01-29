@@ -55,40 +55,22 @@
   box-shadow: 12.5px 21.651px 55px 0px rgba(29, 29, 27, 0.3);
   margin: auto;
   border-radius: 6px;
-  padding: 42px 18px;
-  width: 400px;
+  padding: 30px 18px;
+  width: 290px;
   font-family: 'Montserrat600', sans-serif;
   font-size: 18px;
   line-height: 17px;
   position: relative;
   transition: transform 200ms ease-in-out;
-   
-  &_list-item::before{
-    display: block;
-    position: absolute;
-    content: " ";
-    width: 50px;
-    height: 50px;
-    background-image: url(../images/Layer1.png);
+
+  &_list {
+    text-align: left;
+    font-size: 16px;
+
+    &-item {
+      margin-bottom: 10px;
+    }
   }
-  // &_list {
-  //   text-align: left;
-  //   font-size: 16px;
-
-  //   &-item {
-  //     padding-left: 60px;
-  //     background-image: url(../images/Layer1.png);
-  //     background-size: cover;
-  //     background-position: 0 50%;
-  //     width: 50px;
-  //     height: 50px;
-
-  //     p {
-  //       height: 20px;
-  //     }
-
-  //   }
-  // }
 
   &_title {
     font-weight: 600;

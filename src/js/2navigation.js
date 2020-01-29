@@ -43,7 +43,6 @@ function disablePreloader() {
   preloader.style.display = 'none';
 }
 
-
 const overlay = document.querySelector('.modal-overlay');
 
 document.querySelector('.footer-title').addEventListener('click', showModal);
