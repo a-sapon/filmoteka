@@ -1,1 +1,0 @@
-const preloaderSlide = document.querySelector()

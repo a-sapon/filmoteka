@@ -1,8 +1,7 @@
 .details_page {
   display: none;
-  margin: 20px 0px;
-
-  background-image: linear-gradient(
+  padding: 20px 0px;
+  background: linear-gradient(
     rgba(255, 255, 255, 0.6),
     rgba(233, 211, 134, 0.534)),
     url(../images/background.jpg);
@@ -18,12 +17,11 @@
   }
 }
 
-.details-block {  
-  background-color: lightgray;
-
+.details-block {
   &__block-img {
+    margin: 0 auto;
+    padding-bottom: 20px;
     width: 273px;
-    
 
     @media (min-width: 768px) {
       width: 356px;
@@ -83,11 +81,11 @@
   outline: none;
 
   &-addWatch {
-    background-image: url(../images/logo3.png);
+    background-image: url(../images/logo-blackCopy.png);
   }
 
   &-addQueue {
-    background-image: url(../images/queue1.png);
+    background-image: url(../images/queue.png);
   }
 }
 
@@ -101,6 +99,10 @@
 .tech-info-item {
   display: flex;
   padding-left: 15px;
+
+  &:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 
   &__first-item {
     width: 126px;
@@ -125,8 +127,17 @@
   color: rgba(55, 44, 72, 0.541);
   text-align: justify;
 }
-@media (min-width: 768px) {
-  .wrapper-btn-info {
+
+.wrapper-btn-info {
+  background-color: #dfdede;
+  padding: 10px;
+
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column-reverse;
     width: 400px;
+    padding: 20px;
+    height: min-content;
   }
 }

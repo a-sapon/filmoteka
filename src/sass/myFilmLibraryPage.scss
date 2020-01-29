@@ -4,8 +4,9 @@
   min-height: calc(100vh - (67px + 85px));
 
   background-image: linear-gradient(
-    rgba(255, 255, 255, 0.6),
-    rgba(233, 211, 134, 0.534)),
+    rgba(233, 211, 134, 0.534),
+    rgba(0, 0, 0, 0.4),
+    ),
     url(../images/background.jpg);
 
   @media (min-width: 768px) {
