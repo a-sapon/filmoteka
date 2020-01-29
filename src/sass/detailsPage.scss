@@ -1,6 +1,6 @@
 .details_page {
   display: none;
-  margin: 20px 0px;
+  padding: 20px 0px;
   background: linear-gradient(
     rgba(255, 255, 255, 0.6),
     rgba(233, 211, 134, 0.534)),
@@ -19,6 +19,8 @@
 
 .details-block {
   &__block-img {
+    margin: 0 auto;
+    padding-bottom: 20px;
     width: 273px;
 
     @media (min-width: 768px) {
@@ -121,13 +123,16 @@
   color: rgba(55, 44, 72, 0.541);
   text-align: justify;
 }
-@media (min-width: 768px) {
-  .wrapper-btn-info {
+
+.wrapper-btn-info {
+  background-color: #dfdede;
+  padding: 10px;
+
+  @media (min-width: 768px) {
     display: flex;
     justify-content: flex-end;
     flex-direction: column-reverse;
     width: 400px;
-    background-color: #dfdede;
-    padding: 0 40px 0 40px;
+    padding: 0 20px 0 20px;
   }
 }
